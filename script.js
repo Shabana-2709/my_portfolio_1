@@ -1,73 +1,1008 @@
 (function () {
   'use strict';
 
-  // Ensure scroll position resets to the top (Hero Section) on every page refresh
+  // Ensure scroll position resets to the top on every page refresh
   if ('scrollRestoration' in history) {
     history.scrollRestoration = 'manual';
   }
   window.scrollTo(0, 0);
 
-
+  // (Removed Lenis smooth scroll to fix JS freeze/empty screen issue)
 
   /* ============================================
-     TEXT LINE REVEALS (Awwwards Style)
+     PRELOADER
      ============================================ */
-  document.querySelectorAll('.section-title, .section-label, .section-subtitle, .hero-name, .hero-tagline').forEach(el => {
-    // Preserve any existing inner HTML structure (e.g. highlights)
-    const text = el.innerHTML;
-    el.innerHTML = `<span class="reveal-text-mask" style="display: block;"><span class="reveal-text-inner" style="display: block;">${text}</span></span>`;
-  });
+  function hidePreloader() {
+    const preloader = document.getElementById('preloader');
+    if (preloader && preloader.style.opacity !== '0') {
+      preloader.style.opacity = '0';
+      preloader.style.visibility = 'hidden';
+      document.body.style.overflow = ''; 
+    }
+  }
+  
+  window.addEventListener('load', () => setTimeout(hidePreloader, 500));
+  // Fallback to ensure it never blocks indefinitely
+  setTimeout(hidePreloader, 1500);
 
   /* ============================================
      DATA
      ============================================ */
   const skills = [
-    { name: 'SQL Server', category: 'Database', icon: 'fas fa-database', color: '#CC2927' },
-    { name: 'MySQL', category: 'Database', icon: 'fas fa-database', color: '#4479A1' },
-    { name: 'Python', category: 'Language', icon: 'fab fa-python', color: '#3776AB' },
-    { name: 'Pandas', category: 'Python', icon: 'fas fa-table', color: '#150458' },
-    { name: 'NumPy', category: 'Python', icon: 'fas fa-calculator', color: '#4DABCF' },
-    { name: 'Power BI', category: 'BI Tool', icon: 'fas fa-chart-pie', color: '#F2C811' },
-    { name: 'Looker Studio', category: 'BI Tool', icon: 'fas fa-chart-area', color: '#4285F4' },
-    { name: 'Tableau', category: 'BI Tool', icon: 'fas fa-chart-bar', color: '#E97627' },
-    { name: 'Excel', category: 'Spreadsheet', icon: 'fas fa-file-excel', color: '#217346' },
-    { name: 'Google Sheets', category: 'Spreadsheet', icon: 'fas fa-table', color: '#0F9D58' },
-    { name: 'ETL Pipelines', category: 'Data Eng', icon: 'fas fa-exchange-alt', color: '#F97316' },
-    { name: 'Databricks', category: 'Platform', icon: 'fas fa-fire', color: '#FF3621' },
-    { name: 'Azure', category: 'Cloud', icon: 'fab fa-microsoft', color: '#0078D4' },
-    { name: 'Git', category: 'DevOps', icon: 'fab fa-git-alt', color: '#F05032' },
+    { name: 'UI/UX Design', category: 'Design', icon: 'fas fa-object-group' },
+    { name: 'Graphic Design', category: 'Design', icon: 'fas fa-palette' },
+    { name: 'Content Marketing', category: 'Marketing', icon: 'fas fa-bullhorn' },
+    { name: 'Social Media Management', category: 'Marketing', icon: 'fas fa-share-alt' },
+    { name: 'Lead Generation', category: 'Marketing', icon: 'fas fa-magnet' },
+    { name: 'SEO Optimization', category: 'Marketing', icon: 'fas fa-search' },
+    { name: 'Adobe Photoshop', category: 'Tools', icon: 'fas fa-image' },
+    { name: 'Adobe Illustrator', category: 'Tools', icon: 'fas fa-pen-nib' },
+    { name: 'Figma', category: 'Tools', icon: 'fab fa-figma' },
+    { name: 'Premiere Pro', category: 'Tools', icon: 'fas fa-video' }
   ];
 
   const projects = [
-    {
-      title: 'Manufacturing Operations Dashboard',
-      tags: ['Power BI', 'DAX', 'SQL'],
-      desc: 'Multi-source KPI dashboard for production, inventory & quality tracking. Improved ops visibility by 30%.',
-      icon: 'fas fa-industry',
-      link: 'https://github.com/Elango090602/Manufracturing-Executive-Dashboard',
-    },
-    {
-      title: 'ERP to WordPress Data Migration',
-      tags: ['SQL Server', 'MySQL', 'ETL'],
-      desc: 'End-to-end data mapping, ER diagrams, and post-migration validation for enterprise client.',
-      icon: 'fas fa-exchange-alt',
-      link: 'https://github.com/Elango090602/SQL-Data-Analysis',
-    },
-    {
-      title: 'Automated Data Pipeline',
-      tags: ['Python', 'Pandas', 'SQL'],
-      desc: 'ETL pipeline using Pandas to extract, clean, transform and load raw data. Eliminated manual reporting.',
-      icon: 'fas fa-cogs',
-      link: 'https://github.com/Elango090602/Multi-source-ETL-pipeline',
-    },
-    {
-      title: 'GoodCabs Performance Analysis',
-      tags: ['SQL', 'Power BI', 'Analytics'],
-      desc: 'Cohort & trip trend analysis on ride data to evaluate tier-2 city performance and retention patterns.',
-      icon: 'fas fa-car',
-      link: 'https://github.com/Elango090602/Transportation-Operations-Analytics-Dashboard',
-    },
-  ];
+  {
+    "title": "11",
+    "category": "posters",
+    "catLabel": "Posters & Icons",
+    "tags": [
+      "Graphic Design",
+      "Poster"
+    ],
+    "desc": "Graphic design artwork: 11.jpg",
+    "caseStudy": "<strong>Overview:</strong><br>A creative poster/icon design tailored for visual impact and brand messaging.<br><br><strong>Design Approach:</strong><br>Focused on maintaining aesthetic balance, strong typography, and color harmony to stand out in digital feeds.",
+    "img": "Posters/11.jpg"
+  },
+  {
+    "title": "12",
+    "category": "posters",
+    "catLabel": "Posters & Icons",
+    "tags": [
+      "Graphic Design",
+      "Poster"
+    ],
+    "desc": "Graphic design artwork: 12.jpg",
+    "caseStudy": "<strong>Overview:</strong><br>A creative poster/icon design tailored for visual impact and brand messaging.<br><br><strong>Design Approach:</strong><br>Focused on maintaining aesthetic balance, strong typography, and color harmony to stand out in digital feeds.",
+    "img": "Posters/12.jpg"
+  },
+  {
+    "title": "13",
+    "category": "posters",
+    "catLabel": "Posters & Icons",
+    "tags": [
+      "Graphic Design",
+      "Poster"
+    ],
+    "desc": "Graphic design artwork: 13.jpg",
+    "caseStudy": "<strong>Overview:</strong><br>A creative poster/icon design tailored for visual impact and brand messaging.<br><br><strong>Design Approach:</strong><br>Focused on maintaining aesthetic balance, strong typography, and color harmony to stand out in digital feeds.",
+    "img": "Posters/13.jpg"
+  },
+  {
+    "title": "15",
+    "category": "posters",
+    "catLabel": "Posters & Icons",
+    "tags": [
+      "Graphic Design",
+      "Poster"
+    ],
+    "desc": "Graphic design artwork: 15.jpg",
+    "caseStudy": "<strong>Overview:</strong><br>A creative poster/icon design tailored for visual impact and brand messaging.<br><br><strong>Design Approach:</strong><br>Focused on maintaining aesthetic balance, strong typography, and color harmony to stand out in digital feeds.",
+    "img": "Posters/15.jpg"
+  },
+  {
+    "title": "2",
+    "category": "posters",
+    "catLabel": "Posters & Icons",
+    "tags": [
+      "Graphic Design",
+      "Poster"
+    ],
+    "desc": "Graphic design artwork: 2.jpg",
+    "caseStudy": "<strong>Overview:</strong><br>A creative poster/icon design tailored for visual impact and brand messaging.<br><br><strong>Design Approach:</strong><br>Focused on maintaining aesthetic balance, strong typography, and color harmony to stand out in digital feeds.",
+    "img": "Posters/2.jpg"
+  },
+  {
+    "title": "Branding",
+    "category": "posters",
+    "catLabel": "Posters & Icons",
+    "tags": [
+      "Graphic Design",
+      "Poster"
+    ],
+    "desc": "Graphic design artwork: branding.jpg",
+    "caseStudy": "<strong>Overview:</strong><br>A creative poster/icon design tailored for visual impact and brand messaging.<br><br><strong>Design Approach:</strong><br>Focused on maintaining aesthetic balance, strong typography, and color harmony to stand out in digital feeds.",
+    "img": "Posters/branding.jpg"
+  },
+  {
+    "title": "Business",
+    "category": "posters",
+    "catLabel": "Posters & Icons",
+    "tags": [
+      "Graphic Design",
+      "Poster"
+    ],
+    "desc": "Graphic design artwork: BUSINESS.jpg",
+    "caseStudy": "<strong>Overview:</strong><br>A creative poster/icon design tailored for visual impact and brand messaging.<br><br><strong>Design Approach:</strong><br>Focused on maintaining aesthetic balance, strong typography, and color harmony to stand out in digital feeds.",
+    "img": "Posters/BUSINESS.jpg"
+  },
+  {
+    "title": "Choose",
+    "category": "posters",
+    "catLabel": "Posters & Icons",
+    "tags": [
+      "Graphic Design",
+      "Poster"
+    ],
+    "desc": "Graphic design artwork: CHOOSE.jpg",
+    "caseStudy": "<strong>Overview:</strong><br>A creative poster/icon design tailored for visual impact and brand messaging.<br><br><strong>Design Approach:</strong><br>Focused on maintaining aesthetic balance, strong typography, and color harmony to stand out in digital feeds.",
+    "img": "Posters/CHOOSE.jpg"
+  },
+  {
+    "title": "Digital Marketing Poster 1",
+    "category": "posters",
+    "catLabel": "Posters & Icons",
+    "tags": [
+      "Graphic Design",
+      "Poster"
+    ],
+    "desc": "Graphic design artwork: Digital Marketing Poster 1.jpg",
+    "caseStudy": "<strong>Overview:</strong><br>A creative poster/icon design tailored for visual impact and brand messaging.<br><br><strong>Design Approach:</strong><br>Focused on maintaining aesthetic balance, strong typography, and color harmony to stand out in digital feeds.",
+    "img": "Posters/Digital Marketing Poster 1.jpg"
+  },
+  {
+    "title": "Engagement",
+    "category": "posters",
+    "catLabel": "Posters & Icons",
+    "tags": [
+      "Graphic Design",
+      "Poster"
+    ],
+    "desc": "Graphic design artwork: engagement.jpg",
+    "caseStudy": "<strong>Overview:</strong><br>A creative poster/icon design tailored for visual impact and brand messaging.<br><br><strong>Design Approach:</strong><br>Focused on maintaining aesthetic balance, strong typography, and color harmony to stand out in digital feeds.",
+    "img": "Posters/engagement.jpg"
+  },
+  {
+    "title": "Eurokids 8",
+    "category": "posters",
+    "catLabel": "Posters & Icons",
+    "tags": [
+      "Graphic Design",
+      "Poster"
+    ],
+    "desc": "Graphic design artwork: Eurokids 8.jpg",
+    "caseStudy": "<strong>Overview:</strong><br>A creative poster/icon design tailored for visual impact and brand messaging.<br><br><strong>Design Approach:</strong><br>Focused on maintaining aesthetic balance, strong typography, and color harmony to stand out in digital feeds.",
+    "img": "Posters/Eurokids 8.jpg"
+  },
+  {
+    "title": "Eurokids 9",
+    "category": "posters",
+    "catLabel": "Posters & Icons",
+    "tags": [
+      "Graphic Design",
+      "Poster"
+    ],
+    "desc": "Graphic design artwork: Eurokids 9.jpg",
+    "caseStudy": "<strong>Overview:</strong><br>A creative poster/icon design tailored for visual impact and brand messaging.<br><br><strong>Design Approach:</strong><br>Focused on maintaining aesthetic balance, strong typography, and color harmony to stand out in digital feeds.",
+    "img": "Posters/Eurokids 9.jpg"
+  },
+  {
+    "title": "Eurokids5",
+    "category": "posters",
+    "catLabel": "Posters & Icons",
+    "tags": [
+      "Graphic Design",
+      "Poster"
+    ],
+    "desc": "Graphic design artwork: eurokids5.jpg",
+    "caseStudy": "<strong>Overview:</strong><br>A creative poster/icon design tailored for visual impact and brand messaging.<br><br><strong>Design Approach:</strong><br>Focused on maintaining aesthetic balance, strong typography, and color harmony to stand out in digital feeds.",
+    "img": "Posters/eurokids5.jpg"
+  },
+  {
+    "title": "Eurokids6",
+    "category": "posters",
+    "catLabel": "Posters & Icons",
+    "tags": [
+      "Graphic Design",
+      "Poster"
+    ],
+    "desc": "Graphic design artwork: eurokids6.jpg",
+    "caseStudy": "<strong>Overview:</strong><br>A creative poster/icon design tailored for visual impact and brand messaging.<br><br><strong>Design Approach:</strong><br>Focused on maintaining aesthetic balance, strong typography, and color harmony to stand out in digital feeds.",
+    "img": "Posters/eurokids6.jpg"
+  },
+  {
+    "title": "Eurokids7",
+    "category": "posters",
+    "catLabel": "Posters & Icons",
+    "tags": [
+      "Graphic Design",
+      "Poster"
+    ],
+    "desc": "Graphic design artwork: Eurokids7.jpg",
+    "caseStudy": "<strong>Overview:</strong><br>A creative poster/icon design tailored for visual impact and brand messaging.<br><br><strong>Design Approach:</strong><br>Focused on maintaining aesthetic balance, strong typography, and color harmony to stand out in digital feeds.",
+    "img": "Posters/Eurokids7.jpg"
+  },
+  {
+    "title": "Fix",
+    "category": "posters",
+    "catLabel": "Posters & Icons",
+    "tags": [
+      "Graphic Design",
+      "Poster"
+    ],
+    "desc": "Graphic design artwork: FIX.jpg",
+    "caseStudy": "<strong>Overview:</strong><br>A creative poster/icon design tailored for visual impact and brand messaging.<br><br><strong>Design Approach:</strong><br>Focused on maintaining aesthetic balance, strong typography, and color harmony to stand out in digital feeds.",
+    "img": "Posters/FIX.jpg"
+  },
+  {
+    "title": "Friday",
+    "category": "posters",
+    "catLabel": "Posters & Icons",
+    "tags": [
+      "Graphic Design",
+      "Poster"
+    ],
+    "desc": "Graphic design artwork: friday.jpg",
+    "caseStudy": "<strong>Overview:</strong><br>A creative poster/icon design tailored for visual impact and brand messaging.<br><br><strong>Design Approach:</strong><br>Focused on maintaining aesthetic balance, strong typography, and color harmony to stand out in digital feeds.",
+    "img": "Posters/friday.jpg"
+  },
+  {
+    "title": "Gandhi Jayanti Post",
+    "category": "posters",
+    "catLabel": "Posters & Icons",
+    "tags": [
+      "Graphic Design",
+      "Poster"
+    ],
+    "desc": "Graphic design artwork: gandhi jayanti post.jpg",
+    "caseStudy": "<strong>Overview:</strong><br>A creative poster/icon design tailored for visual impact and brand messaging.<br><br><strong>Design Approach:</strong><br>Focused on maintaining aesthetic balance, strong typography, and color harmony to stand out in digital feeds.",
+    "img": "Posters/gandhi jayanti post.jpg"
+  },
+  {
+    "title": "Ganesh Chaturthi",
+    "category": "posters",
+    "catLabel": "Posters & Icons",
+    "tags": [
+      "Graphic Design",
+      "Poster"
+    ],
+    "desc": "Graphic design artwork: ganesh chaturthi.jpg",
+    "caseStudy": "<strong>Overview:</strong><br>A creative poster/icon design tailored for visual impact and brand messaging.<br><br><strong>Design Approach:</strong><br>Focused on maintaining aesthetic balance, strong typography, and color harmony to stand out in digital feeds.",
+    "img": "Posters/ganesh chaturthi.jpg"
+  },
+  {
+    "title": "Img",
+    "category": "posters",
+    "catLabel": "Posters & Icons",
+    "tags": [
+      "Graphic Design",
+      "Poster"
+    ],
+    "desc": "Graphic design artwork: img.jpg",
+    "caseStudy": "<strong>Overview:</strong><br>A creative poster/icon design tailored for visual impact and brand messaging.<br><br><strong>Design Approach:</strong><br>Focused on maintaining aesthetic balance, strong typography, and color harmony to stand out in digital feeds.",
+    "img": "Posters/img.jpg"
+  },
+  {
+    "title": "Img0.2",
+    "category": "posters",
+    "catLabel": "Posters & Icons",
+    "tags": [
+      "Graphic Design",
+      "Poster"
+    ],
+    "desc": "Graphic design artwork: img0.2.jpg",
+    "caseStudy": "<strong>Overview:</strong><br>A creative poster/icon design tailored for visual impact and brand messaging.<br><br><strong>Design Approach:</strong><br>Focused on maintaining aesthetic balance, strong typography, and color harmony to stand out in digital feeds.",
+    "img": "Posters/img0.2.jpg"
+  },
+  {
+    "title": "Img_11",
+    "category": "posters",
+    "catLabel": "Posters & Icons",
+    "tags": [
+      "Graphic Design",
+      "Poster"
+    ],
+    "desc": "Graphic design artwork: img_11.jpg",
+    "caseStudy": "<strong>Overview:</strong><br>A creative poster/icon design tailored for visual impact and brand messaging.<br><br><strong>Design Approach:</strong><br>Focused on maintaining aesthetic balance, strong typography, and color harmony to stand out in digital feeds.",
+    "img": "Posters/img_11.jpg"
+  },
+  {
+    "title": "Img_2",
+    "category": "posters",
+    "catLabel": "Posters & Icons",
+    "tags": [
+      "Graphic Design",
+      "Poster"
+    ],
+    "desc": "Graphic design artwork: img_2.jpg",
+    "caseStudy": "<strong>Overview:</strong><br>A creative poster/icon design tailored for visual impact and brand messaging.<br><br><strong>Design Approach:</strong><br>Focused on maintaining aesthetic balance, strong typography, and color harmony to stand out in digital feeds.",
+    "img": "Posters/img_2.jpg"
+  },
+  {
+    "title": "Img_3",
+    "category": "posters",
+    "catLabel": "Posters & Icons",
+    "tags": [
+      "Graphic Design",
+      "Poster"
+    ],
+    "desc": "Graphic design artwork: img_3.jpg",
+    "caseStudy": "<strong>Overview:</strong><br>A creative poster/icon design tailored for visual impact and brand messaging.<br><br><strong>Design Approach:</strong><br>Focused on maintaining aesthetic balance, strong typography, and color harmony to stand out in digital feeds.",
+    "img": "Posters/img_3.jpg"
+  },
+  {
+    "title": "Keep In Touch",
+    "category": "posters",
+    "catLabel": "Posters & Icons",
+    "tags": [
+      "Graphic Design",
+      "Poster"
+    ],
+    "desc": "Graphic design artwork: keep in touch.jpg",
+    "caseStudy": "<strong>Overview:</strong><br>A creative poster/icon design tailored for visual impact and brand messaging.<br><br><strong>Design Approach:</strong><br>Focused on maintaining aesthetic balance, strong typography, and color harmony to stand out in digital feeds.",
+    "img": "Posters/keep in touch.jpg"
+  },
+  {
+    "title": "Krishna Janmashtami",
+    "category": "posters",
+    "catLabel": "Posters & Icons",
+    "tags": [
+      "Graphic Design",
+      "Poster"
+    ],
+    "desc": "Graphic design artwork: krishna janmashtami.jpg",
+    "caseStudy": "<strong>Overview:</strong><br>A creative poster/icon design tailored for visual impact and brand messaging.<br><br><strong>Design Approach:</strong><br>Focused on maintaining aesthetic balance, strong typography, and color harmony to stand out in digital feeds.",
+    "img": "Posters/krishna janmashtami.jpg"
+  },
+  {
+    "title": "Like Template",
+    "category": "posters",
+    "catLabel": "Posters & Icons",
+    "tags": [
+      "Graphic Design",
+      "Poster"
+    ],
+    "desc": "Graphic design artwork: LIKE template.jpg",
+    "caseStudy": "<strong>Overview:</strong><br>A creative poster/icon design tailored for visual impact and brand messaging.<br><br><strong>Design Approach:</strong><br>Focused on maintaining aesthetic balance, strong typography, and color harmony to stand out in digital feeds.",
+    "img": "Posters/LIKE template.jpg"
+  },
+  {
+    "title": "Logo1",
+    "category": "posters",
+    "catLabel": "Posters & Icons",
+    "tags": [
+      "Graphic Design",
+      "Poster"
+    ],
+    "desc": "Graphic design artwork: logo1.jpg",
+    "caseStudy": "<strong>Overview:</strong><br>A creative poster/icon design tailored for visual impact and brand messaging.<br><br><strong>Design Approach:</strong><br>Focused on maintaining aesthetic balance, strong typography, and color harmony to stand out in digital feeds.",
+    "img": "Posters/logo1.jpg"
+  },
+  {
+    "title": "Medicine",
+    "category": "posters",
+    "catLabel": "Posters & Icons",
+    "tags": [
+      "Graphic Design",
+      "Poster"
+    ],
+    "desc": "Graphic design artwork: medicine.jpg",
+    "caseStudy": "<strong>Overview:</strong><br>A creative poster/icon design tailored for visual impact and brand messaging.<br><br><strong>Design Approach:</strong><br>Focused on maintaining aesthetic balance, strong typography, and color harmony to stand out in digital feeds.",
+    "img": "Posters/medicine.jpg"
+  },
+  {
+    "title": "Milad Un Nabi Post 1",
+    "category": "posters",
+    "catLabel": "Posters & Icons",
+    "tags": [
+      "Graphic Design",
+      "Poster"
+    ],
+    "desc": "Graphic design artwork: milad un nabi post 1.jpg",
+    "caseStudy": "<strong>Overview:</strong><br>A creative poster/icon design tailored for visual impact and brand messaging.<br><br><strong>Design Approach:</strong><br>Focused on maintaining aesthetic balance, strong typography, and color harmony to stand out in digital feeds.",
+    "img": "Posters/milad un nabi post 1.jpg"
+  },
+  {
+    "title": "Minion",
+    "category": "posters",
+    "catLabel": "Posters & Icons",
+    "tags": [
+      "Graphic Design",
+      "Poster"
+    ],
+    "desc": "Graphic design artwork: minion.jpg",
+    "caseStudy": "<strong>Overview:</strong><br>A creative poster/icon design tailored for visual impact and brand messaging.<br><br><strong>Design Approach:</strong><br>Focused on maintaining aesthetic balance, strong typography, and color harmony to stand out in digital feeds.",
+    "img": "Posters/minion.jpg"
+  },
+  {
+    "title": "New Logo 1",
+    "category": "posters",
+    "catLabel": "Posters & Icons",
+    "tags": [
+      "Graphic Design",
+      "Poster"
+    ],
+    "desc": "Graphic design artwork: new logo 1.jpg",
+    "caseStudy": "<strong>Overview:</strong><br>A creative poster/icon design tailored for visual impact and brand messaging.<br><br><strong>Design Approach:</strong><br>Focused on maintaining aesthetic balance, strong typography, and color harmony to stand out in digital feeds.",
+    "img": "Posters/new logo 1.jpg"
+  },
+  {
+    "title": "Post 11",
+    "category": "posters",
+    "catLabel": "Posters & Icons",
+    "tags": [
+      "Graphic Design",
+      "Poster"
+    ],
+    "desc": "Graphic design artwork: post 11.jpg",
+    "caseStudy": "<strong>Overview:</strong><br>A creative poster/icon design tailored for visual impact and brand messaging.<br><br><strong>Design Approach:</strong><br>Focused on maintaining aesthetic balance, strong typography, and color harmony to stand out in digital feeds.",
+    "img": "Posters/post 11.jpg"
+  },
+  {
+    "title": "Post 12",
+    "category": "posters",
+    "catLabel": "Posters & Icons",
+    "tags": [
+      "Graphic Design",
+      "Poster"
+    ],
+    "desc": "Graphic design artwork: post 12.jpg",
+    "caseStudy": "<strong>Overview:</strong><br>A creative poster/icon design tailored for visual impact and brand messaging.<br><br><strong>Design Approach:</strong><br>Focused on maintaining aesthetic balance, strong typography, and color harmony to stand out in digital feeds.",
+    "img": "Posters/post 12.jpg"
+  },
+  {
+    "title": "Post1",
+    "category": "posters",
+    "catLabel": "Posters & Icons",
+    "tags": [
+      "Graphic Design",
+      "Poster"
+    ],
+    "desc": "Graphic design artwork: post1.jpg",
+    "caseStudy": "<strong>Overview:</strong><br>A creative poster/icon design tailored for visual impact and brand messaging.<br><br><strong>Design Approach:</strong><br>Focused on maintaining aesthetic balance, strong typography, and color harmony to stand out in digital feeds.",
+    "img": "Posters/post1.jpg"
+  },
+  {
+    "title": "Post2",
+    "category": "posters",
+    "catLabel": "Posters & Icons",
+    "tags": [
+      "Graphic Design",
+      "Poster"
+    ],
+    "desc": "Graphic design artwork: post2.jpg",
+    "caseStudy": "<strong>Overview:</strong><br>A creative poster/icon design tailored for visual impact and brand messaging.<br><br><strong>Design Approach:</strong><br>Focused on maintaining aesthetic balance, strong typography, and color harmony to stand out in digital feeds.",
+    "img": "Posters/post2.jpg"
+  },
+  {
+    "title": "Post3",
+    "category": "posters",
+    "catLabel": "Posters & Icons",
+    "tags": [
+      "Graphic Design",
+      "Poster"
+    ],
+    "desc": "Graphic design artwork: post3.jpg",
+    "caseStudy": "<strong>Overview:</strong><br>A creative poster/icon design tailored for visual impact and brand messaging.<br><br><strong>Design Approach:</strong><br>Focused on maintaining aesthetic balance, strong typography, and color harmony to stand out in digital feeds.",
+    "img": "Posters/post3.jpg"
+  },
+  {
+    "title": "Post4",
+    "category": "posters",
+    "catLabel": "Posters & Icons",
+    "tags": [
+      "Graphic Design",
+      "Poster"
+    ],
+    "desc": "Graphic design artwork: post4.jpg",
+    "caseStudy": "<strong>Overview:</strong><br>A creative poster/icon design tailored for visual impact and brand messaging.<br><br><strong>Design Approach:</strong><br>Focused on maintaining aesthetic balance, strong typography, and color harmony to stand out in digital feeds.",
+    "img": "Posters/post4.jpg"
+  },
+  {
+    "title": "Poster 1111",
+    "category": "posters",
+    "catLabel": "Posters & Icons",
+    "tags": [
+      "Graphic Design",
+      "Poster"
+    ],
+    "desc": "Graphic design artwork: poster 1111.jpg",
+    "caseStudy": "<strong>Overview:</strong><br>A creative poster/icon design tailored for visual impact and brand messaging.<br><br><strong>Design Approach:</strong><br>Focused on maintaining aesthetic balance, strong typography, and color harmony to stand out in digital feeds.",
+    "img": "Posters/poster 1111.jpg"
+  },
+  {
+    "title": "Poster 3333",
+    "category": "posters",
+    "catLabel": "Posters & Icons",
+    "tags": [
+      "Graphic Design",
+      "Poster"
+    ],
+    "desc": "Graphic design artwork: poster 3333.jpg",
+    "caseStudy": "<strong>Overview:</strong><br>A creative poster/icon design tailored for visual impact and brand messaging.<br><br><strong>Design Approach:</strong><br>Focused on maintaining aesthetic balance, strong typography, and color harmony to stand out in digital feeds.",
+    "img": "Posters/poster 3333.jpg"
+  },
+  {
+    "title": "Poster11",
+    "category": "posters",
+    "catLabel": "Posters & Icons",
+    "tags": [
+      "Graphic Design",
+      "Poster"
+    ],
+    "desc": "Graphic design artwork: poster11.jpg",
+    "caseStudy": "<strong>Overview:</strong><br>A creative poster/icon design tailored for visual impact and brand messaging.<br><br><strong>Design Approach:</strong><br>Focused on maintaining aesthetic balance, strong typography, and color harmony to stand out in digital feeds.",
+    "img": "Posters/poster11.jpg"
+  },
+  {
+    "title": "Poster2222",
+    "category": "posters",
+    "catLabel": "Posters & Icons",
+    "tags": [
+      "Graphic Design",
+      "Poster"
+    ],
+    "desc": "Graphic design artwork: poster2222.jpg",
+    "caseStudy": "<strong>Overview:</strong><br>A creative poster/icon design tailored for visual impact and brand messaging.<br><br><strong>Design Approach:</strong><br>Focused on maintaining aesthetic balance, strong typography, and color harmony to stand out in digital feeds.",
+    "img": "Posters/poster2222.jpg"
+  },
+  {
+    "title": "Poster223",
+    "category": "posters",
+    "catLabel": "Posters & Icons",
+    "tags": [
+      "Graphic Design",
+      "Poster"
+    ],
+    "desc": "Graphic design artwork: poster223.jpg",
+    "caseStudy": "<strong>Overview:</strong><br>A creative poster/icon design tailored for visual impact and brand messaging.<br><br><strong>Design Approach:</strong><br>Focused on maintaining aesthetic balance, strong typography, and color harmony to stand out in digital feeds.",
+    "img": "Posters/poster223.jpg"
+  },
+  {
+    "title": "Puzzle",
+    "category": "posters",
+    "catLabel": "Posters & Icons",
+    "tags": [
+      "Graphic Design",
+      "Poster"
+    ],
+    "desc": "Graphic design artwork: PUZZLE.jpg",
+    "caseStudy": "<strong>Overview:</strong><br>A creative poster/icon design tailored for visual impact and brand messaging.<br><br><strong>Design Approach:</strong><br>Focused on maintaining aesthetic balance, strong typography, and color harmony to stand out in digital feeds.",
+    "img": "Posters/PUZZLE.jpg"
+  },
+  {
+    "title": "Quotes 1",
+    "category": "posters",
+    "catLabel": "Posters & Icons",
+    "tags": [
+      "Graphic Design",
+      "Poster"
+    ],
+    "desc": "Graphic design artwork: quotes 1.jpg",
+    "caseStudy": "<strong>Overview:</strong><br>A creative poster/icon design tailored for visual impact and brand messaging.<br><br><strong>Design Approach:</strong><br>Focused on maintaining aesthetic balance, strong typography, and color harmony to stand out in digital feeds.",
+    "img": "Posters/quotes 1.jpg"
+  },
+  {
+    "title": "Quotes2",
+    "category": "posters",
+    "catLabel": "Posters & Icons",
+    "tags": [
+      "Graphic Design",
+      "Poster"
+    ],
+    "desc": "Graphic design artwork: quotes2.jpg",
+    "caseStudy": "<strong>Overview:</strong><br>A creative poster/icon design tailored for visual impact and brand messaging.<br><br><strong>Design Approach:</strong><br>Focused on maintaining aesthetic balance, strong typography, and color harmony to stand out in digital feeds.",
+    "img": "Posters/quotes2.jpg"
+  },
+  {
+    "title": "Search",
+    "category": "posters",
+    "catLabel": "Posters & Icons",
+    "tags": [
+      "Graphic Design",
+      "Poster"
+    ],
+    "desc": "Graphic design artwork: search.jpg",
+    "caseStudy": "<strong>Overview:</strong><br>A creative poster/icon design tailored for visual impact and brand messaging.<br><br><strong>Design Approach:</strong><br>Focused on maintaining aesthetic balance, strong typography, and color harmony to stand out in digital feeds.",
+    "img": "Posters/search.jpg"
+  },
+  {
+    "title": "Social Leader",
+    "category": "posters",
+    "catLabel": "Posters & Icons",
+    "tags": [
+      "Graphic Design",
+      "Poster"
+    ],
+    "desc": "Graphic design artwork: social leader.jpg",
+    "caseStudy": "<strong>Overview:</strong><br>A creative poster/icon design tailored for visual impact and brand messaging.<br><br><strong>Design Approach:</strong><br>Focused on maintaining aesthetic balance, strong typography, and color harmony to stand out in digital feeds.",
+    "img": "Posters/social leader.jpg"
+  },
+  {
+    "title": "Social Media 1",
+    "category": "posters",
+    "catLabel": "Posters & Icons",
+    "tags": [
+      "Graphic Design",
+      "Poster"
+    ],
+    "desc": "Graphic design artwork: social media 1.jpg",
+    "caseStudy": "<strong>Overview:</strong><br>A creative poster/icon design tailored for visual impact and brand messaging.<br><br><strong>Design Approach:</strong><br>Focused on maintaining aesthetic balance, strong typography, and color harmony to stand out in digital feeds.",
+    "img": "Posters/social media 1.jpg"
+  },
+  {
+    "title": "Social Media",
+    "category": "posters",
+    "catLabel": "Posters & Icons",
+    "tags": [
+      "Graphic Design",
+      "Poster"
+    ],
+    "desc": "Graphic design artwork: social media.jpg",
+    "caseStudy": "<strong>Overview:</strong><br>A creative poster/icon design tailored for visual impact and brand messaging.<br><br><strong>Design Approach:</strong><br>Focused on maintaining aesthetic balance, strong typography, and color harmony to stand out in digital feeds.",
+    "img": "Posters/social media.jpg"
+  },
+  {
+    "title": "Sunday Post",
+    "category": "posters",
+    "catLabel": "Posters & Icons",
+    "tags": [
+      "Graphic Design",
+      "Poster"
+    ],
+    "desc": "Graphic design artwork: sunday post.jpg",
+    "caseStudy": "<strong>Overview:</strong><br>A creative poster/icon design tailored for visual impact and brand messaging.<br><br><strong>Design Approach:</strong><br>Focused on maintaining aesthetic balance, strong typography, and color harmony to stand out in digital feeds.",
+    "img": "Posters/sunday post.jpg"
+  },
+  {
+    "title": "Tea Time",
+    "category": "posters",
+    "catLabel": "Posters & Icons",
+    "tags": [
+      "Graphic Design",
+      "Poster"
+    ],
+    "desc": "Graphic design artwork: tea time.jpg",
+    "caseStudy": "<strong>Overview:</strong><br>A creative poster/icon design tailored for visual impact and brand messaging.<br><br><strong>Design Approach:</strong><br>Focused on maintaining aesthetic balance, strong typography, and color harmony to stand out in digital feeds.",
+    "img": "Posters/tea time.jpg"
+  },
+  {
+    "title": "Teachers Day",
+    "category": "posters",
+    "catLabel": "Posters & Icons",
+    "tags": [
+      "Graphic Design",
+      "Poster"
+    ],
+    "desc": "Graphic design artwork: teachers day.jpg",
+    "caseStudy": "<strong>Overview:</strong><br>A creative poster/icon design tailored for visual impact and brand messaging.<br><br><strong>Design Approach:</strong><br>Focused on maintaining aesthetic balance, strong typography, and color harmony to stand out in digital feeds.",
+    "img": "Posters/teachers day.jpg"
+  },
+  {
+    "title": "Then Vs Now",
+    "category": "posters",
+    "catLabel": "Posters & Icons",
+    "tags": [
+      "Graphic Design",
+      "Poster"
+    ],
+    "desc": "Graphic design artwork: then vs now.jpg",
+    "caseStudy": "<strong>Overview:</strong><br>A creative poster/icon design tailored for visual impact and brand messaging.<br><br><strong>Design Approach:</strong><br>Focused on maintaining aesthetic balance, strong typography, and color harmony to stand out in digital feeds.",
+    "img": "Posters/then vs now.jpg"
+  },
+  {
+    "title": "Time",
+    "category": "posters",
+    "catLabel": "Posters & Icons",
+    "tags": [
+      "Graphic Design",
+      "Poster"
+    ],
+    "desc": "Graphic design artwork: time.jpg",
+    "caseStudy": "<strong>Overview:</strong><br>A creative poster/icon design tailored for visual impact and brand messaging.<br><br><strong>Design Approach:</strong><br>Focused on maintaining aesthetic balance, strong typography, and color harmony to stand out in digital feeds.",
+    "img": "Posters/time.jpg"
+  },
+  {
+    "title": "Week",
+    "category": "posters",
+    "catLabel": "Posters & Icons",
+    "tags": [
+      "Graphic Design",
+      "Poster"
+    ],
+    "desc": "Graphic design artwork: week.jpg",
+    "caseStudy": "<strong>Overview:</strong><br>A creative poster/icon design tailored for visual impact and brand messaging.<br><br><strong>Design Approach:</strong><br>Focused on maintaining aesthetic balance, strong typography, and color harmony to stand out in digital feeds.",
+    "img": "Posters/week.jpg"
+  },
+  {
+    "title": "1128 X 191",
+    "category": "banners",
+    "catLabel": "LinkedIn Banners",
+    "tags": [
+      "Branding",
+      "Banner"
+    ],
+    "desc": "Professional banner design for web and LinkedIn profiles.",
+    "caseStudy": "<strong>Overview:</strong><br>Designed an impactful horizontal banner focusing on employer branding and professional presence.<br><br><strong>Design Approach:</strong><br>Ensured negative space for profile elements and used a balanced layout so text remains highly readable on both desktop and mobile devices.",
+    "img": "banners/1128 x 191.jpg"
+  },
+  {
+    "title": "Hireglint 5",
+    "category": "banners",
+    "catLabel": "LinkedIn Banners",
+    "tags": [
+      "Branding",
+      "Banner"
+    ],
+    "desc": "Professional banner design for web and LinkedIn profiles.",
+    "caseStudy": "<strong>Overview:</strong><br>Designed an impactful horizontal banner focusing on employer branding and professional presence.<br><br><strong>Design Approach:</strong><br>Ensured negative space for profile elements and used a balanced layout so text remains highly readable on both desktop and mobile devices.",
+    "img": "banners/Hireglint 5.jpg"
+  },
+  {
+    "title": "Ai Programming",
+    "category": "carousel",
+    "catLabel": "Carousel Posts",
+    "tags": [
+      "Content Marketing",
+      "Carousel"
+    ],
+    "desc": "Educational and engaging multi-slide carousel.",
+    "caseStudy": "<strong>Overview:</strong><br>A multi-slide carousel crafted to deliver high-value information efficiently and maximize user engagement metrics.<br><br><strong>Design Approach:</strong><br>Maintained a consistent grid and progressive disclosure across slides to encourage users to swipe through to the end.",
+    "img": "Carousel/AI Programming/1.jpg"
+  },
+  {
+    "title": "Bring Everything Into One Platform With Hireglint Ai",
+    "category": "carousel",
+    "catLabel": "Carousel Posts",
+    "tags": [
+      "Content Marketing",
+      "Carousel"
+    ],
+    "desc": "Educational and engaging multi-slide carousel.",
+    "caseStudy": "<strong>Overview:</strong><br>A multi-slide carousel crafted to deliver high-value information efficiently and maximize user engagement metrics.<br><br><strong>Design Approach:</strong><br>Maintained a consistent grid and progressive disclosure across slides to encourage users to swipe through to the end.",
+    "img": "Carousel/Bring Everything Into One Platform with HireGlint AI/1.jpg"
+  },
+  {
+    "title": "Carousel 2",
+    "category": "carousel",
+    "catLabel": "Carousel Posts",
+    "tags": [
+      "Content Marketing",
+      "Carousel"
+    ],
+    "desc": "Educational and engaging multi-slide carousel.",
+    "caseStudy": "<strong>Overview:</strong><br>A multi-slide carousel crafted to deliver high-value information efficiently and maximize user engagement metrics.<br><br><strong>Design Approach:</strong><br>Maintained a consistent grid and progressive disclosure across slides to encourage users to swipe through to the end.",
+    "img": "Carousel/carousel 2/1.jpg"
+  },
+  {
+    "title": "Carousel Post 1",
+    "category": "carousel",
+    "catLabel": "Carousel Posts",
+    "tags": [
+      "Content Marketing",
+      "Carousel"
+    ],
+    "desc": "Educational and engaging multi-slide carousel.",
+    "caseStudy": "<strong>Overview:</strong><br>A multi-slide carousel crafted to deliver high-value information efficiently and maximize user engagement metrics.<br><br><strong>Design Approach:</strong><br>Maintained a consistent grid and progressive disclosure across slides to encourage users to swipe through to the end.",
+    "img": "Carousel/Carousel Post 1/1.jpg"
+  },
+  {
+    "title": "Hiring Ai Developers Don\u2019T Trust Just The Resume",
+    "category": "carousel",
+    "catLabel": "Carousel Posts",
+    "tags": [
+      "Content Marketing",
+      "Carousel"
+    ],
+    "desc": "Educational and engaging multi-slide carousel.",
+    "caseStudy": "<strong>Overview:</strong><br>A multi-slide carousel crafted to deliver high-value information efficiently and maximize user engagement metrics.<br><br><strong>Design Approach:</strong><br>Maintained a consistent grid and progressive disclosure across slides to encourage users to swipe through to the end.",
+    "img": "Carousel/Hiring AI Developers Don\u2019t Trust Just the Resume/1.jpg"
+  },
+  {
+    "title": "Myths About Ai Hiring \u2014 And What Actually Works",
+    "category": "carousel",
+    "catLabel": "Carousel Posts",
+    "tags": [
+      "Content Marketing",
+      "Carousel"
+    ],
+    "desc": "Educational and engaging multi-slide carousel.",
+    "caseStudy": "<strong>Overview:</strong><br>A multi-slide carousel crafted to deliver high-value information efficiently and maximize user engagement metrics.<br><br><strong>Design Approach:</strong><br>Maintained a consistent grid and progressive disclosure across slides to encourage users to swipe through to the end.",
+    "img": "Carousel/Myths About AI Hiring \u2014 And What Actually Works/1.jpg"
+  },
+  {
+    "title": "The Challenge Isn\u2019T Hiring. It\u2019S Evaluating Candidates Consistently",
+    "category": "carousel",
+    "catLabel": "Carousel Posts",
+    "tags": [
+      "Content Marketing",
+      "Carousel"
+    ],
+    "desc": "Educational and engaging multi-slide carousel.",
+    "caseStudy": "<strong>Overview:</strong><br>A multi-slide carousel crafted to deliver high-value information efficiently and maximize user engagement metrics.<br><br><strong>Design Approach:</strong><br>Maintained a consistent grid and progressive disclosure across slides to encourage users to swipe through to the end.",
+    "img": "Carousel/The Challenge Isn\u2019t Hiring. It\u2019s Evaluating Candidates Consistently/1.jpg"
+  },
+  {
+    "title": "You'Re Hiring Ai Engineers Wrong",
+    "category": "carousel",
+    "catLabel": "Carousel Posts",
+    "tags": [
+      "Content Marketing",
+      "Carousel"
+    ],
+    "desc": "Educational and engaging multi-slide carousel.",
+    "caseStudy": "<strong>Overview:</strong><br>A multi-slide carousel crafted to deliver high-value information efficiently and maximize user engagement metrics.<br><br><strong>Design Approach:</strong><br>Maintained a consistent grid and progressive disclosure across slides to encourage users to swipe through to the end.",
+    "img": "Carousel/You're hiring AI Engineers wrong/Page 1.jpg"
+  },
+  {
+    "title": "Ai Role Landscape (1)",
+    "category": "video",
+    "catLabel": "Landscape Video",
+    "tags": [
+      "Video Editing",
+      "Landscape"
+    ],
+    "desc": "Fast-paced, engaging short-form video content.",
+    "caseStudy": "<strong>Overview:</strong><br>High-retention video content crafted with precision editing to maximize audience watch time.<br><br><strong>Editing Approach:</strong><br>Utilized dynamic cuts, engaging text pop-ups, and audio syncing to keep the viewer hooked from the first second.",
+    "img": "Reel/Landscape/Ai role Landscape (1).mp4"
+  },
+  {
+    "title": "Campus Drive",
+    "category": "video",
+    "catLabel": "Landscape Video",
+    "tags": [
+      "Video Editing",
+      "Landscape"
+    ],
+    "desc": "Fast-paced, engaging short-form video content.",
+    "caseStudy": "<strong>Overview:</strong><br>High-retention video content crafted with precision editing to maximize audience watch time.<br><br><strong>Editing Approach:</strong><br>Utilized dynamic cuts, engaging text pop-ups, and audio syncing to keep the viewer hooked from the first second.",
+    "img": "Reel/Landscape/Campus drive.mp4"
+  },
+  {
+    "title": "Flutter Hiring (2)",
+    "category": "video",
+    "catLabel": "Landscape Video",
+    "tags": [
+      "Video Editing",
+      "Landscape"
+    ],
+    "desc": "Fast-paced, engaging short-form video content.",
+    "caseStudy": "<strong>Overview:</strong><br>High-retention video content crafted with precision editing to maximize audience watch time.<br><br><strong>Editing Approach:</strong><br>Utilized dynamic cuts, engaging text pop-ups, and audio syncing to keep the viewer hooked from the first second.",
+    "img": "Reel/Landscape/Flutter hiring (2).mp4"
+  },
+  {
+    "title": "Framework Landscape",
+    "category": "video",
+    "catLabel": "Landscape Video",
+    "tags": [
+      "Video Editing",
+      "Landscape"
+    ],
+    "desc": "Fast-paced, engaging short-form video content.",
+    "caseStudy": "<strong>Overview:</strong><br>High-retention video content crafted with precision editing to maximize audience watch time.<br><br><strong>Editing Approach:</strong><br>Utilized dynamic cuts, engaging text pop-ups, and audio syncing to keep the viewer hooked from the first second.",
+    "img": "Reel/Landscape/Framework Landscape.mp4"
+  },
+  {
+    "title": "Hireglint Ai ",
+    "category": "video",
+    "catLabel": "Landscape Video",
+    "tags": [
+      "Video Editing",
+      "Landscape"
+    ],
+    "desc": "Fast-paced, engaging short-form video content.",
+    "caseStudy": "<strong>Overview:</strong><br>High-retention video content crafted with precision editing to maximize audience watch time.<br><br><strong>Editing Approach:</strong><br>Utilized dynamic cuts, engaging text pop-ups, and audio syncing to keep the viewer hooked from the first second.",
+    "img": "Reel/Landscape/HireGlint AI .mp4"
+  },
+  {
+    "title": "Proctoring Landscape ",
+    "category": "video",
+    "catLabel": "Landscape Video",
+    "tags": [
+      "Video Editing",
+      "Landscape"
+    ],
+    "desc": "Fast-paced, engaging short-form video content.",
+    "caseStudy": "<strong>Overview:</strong><br>High-retention video content crafted with precision editing to maximize audience watch time.<br><br><strong>Editing Approach:</strong><br>Utilized dynamic cuts, engaging text pop-ups, and audio syncing to keep the viewer hooked from the first second.",
+    "img": "Reel/Landscape/Proctoring landscape .mp4"
+  },
+  {
+    "title": "Ai Question ",
+    "category": "video",
+    "catLabel": "Portrait Video",
+    "tags": [
+      "Video Editing",
+      "Portrait"
+    ],
+    "desc": "Fast-paced, engaging short-form video content.",
+    "caseStudy": "<strong>Overview:</strong><br>High-retention video content crafted with precision editing to maximize audience watch time.<br><br><strong>Editing Approach:</strong><br>Utilized dynamic cuts, engaging text pop-ups, and audio syncing to keep the viewer hooked from the first second.",
+    "img": "Reel/Portrait/AI question .mp4"
+  },
+  {
+    "title": "Ai Role Portrait  (1)",
+    "category": "video",
+    "catLabel": "Portrait Video",
+    "tags": [
+      "Video Editing",
+      "Portrait"
+    ],
+    "desc": "Fast-paced, engaging short-form video content.",
+    "caseStudy": "<strong>Overview:</strong><br>High-retention video content crafted with precision editing to maximize audience watch time.<br><br><strong>Editing Approach:</strong><br>Utilized dynamic cuts, engaging text pop-ups, and audio syncing to keep the viewer hooked from the first second.",
+    "img": "Reel/Portrait/AI role portrait  (1).mp4"
+  },
+  {
+    "title": "Framework (1)",
+    "category": "video",
+    "catLabel": "Portrait Video",
+    "tags": [
+      "Video Editing",
+      "Portrait"
+    ],
+    "desc": "Fast-paced, engaging short-form video content.",
+    "caseStudy": "<strong>Overview:</strong><br>High-retention video content crafted with precision editing to maximize audience watch time.<br><br><strong>Editing Approach:</strong><br>Utilized dynamic cuts, engaging text pop-ups, and audio syncing to keep the viewer hooked from the first second.",
+    "img": "Reel/Portrait/framework (1).mp4"
+  },
+  {
+    "title": "Hireglint  (1)",
+    "category": "video",
+    "catLabel": "Portrait Video",
+    "tags": [
+      "Video Editing",
+      "Portrait"
+    ],
+    "desc": "Fast-paced, engaging short-form video content.",
+    "caseStudy": "<strong>Overview:</strong><br>High-retention video content crafted with precision editing to maximize audience watch time.<br><br><strong>Editing Approach:</strong><br>Utilized dynamic cuts, engaging text pop-ups, and audio syncing to keep the viewer hooked from the first second.",
+    "img": "Reel/Portrait/Hireglint  (1).mp4"
+  },
+  {
+    "title": "Livefeed Reel (2)",
+    "category": "video",
+    "catLabel": "Portrait Video",
+    "tags": [
+      "Video Editing",
+      "Portrait"
+    ],
+    "desc": "Fast-paced, engaging short-form video content.",
+    "caseStudy": "<strong>Overview:</strong><br>High-retention video content crafted with precision editing to maximize audience watch time.<br><br><strong>Editing Approach:</strong><br>Utilized dynamic cuts, engaging text pop-ups, and audio syncing to keep the viewer hooked from the first second.",
+    "img": "Reel/Portrait/livefeed reel (2).mp4"
+  },
+  {
+    "title": "Pair Programming ",
+    "category": "video",
+    "catLabel": "Portrait Video",
+    "tags": [
+      "Video Editing",
+      "Portrait"
+    ],
+    "desc": "Fast-paced, engaging short-form video content.",
+    "caseStudy": "<strong>Overview:</strong><br>High-retention video content crafted with precision editing to maximize audience watch time.<br><br><strong>Editing Approach:</strong><br>Utilized dynamic cuts, engaging text pop-ups, and audio syncing to keep the viewer hooked from the first second.",
+    "img": "Reel/Portrait/Pair Programming .mp4"
+  },
+  {
+    "title": "Recruitment 2.0 Starts Now",
+    "category": "video",
+    "catLabel": "Portrait Video",
+    "tags": [
+      "Video Editing",
+      "Portrait"
+    ],
+    "desc": "Fast-paced, engaging short-form video content.",
+    "caseStudy": "<strong>Overview:</strong><br>High-retention video content crafted with precision editing to maximize audience watch time.<br><br><strong>Editing Approach:</strong><br>Utilized dynamic cuts, engaging text pop-ups, and audio syncing to keep the viewer hooked from the first second.",
+    "img": "Reel/Portrait/Recruitment 2.0 Starts Now.mp4"
+  },
+  {
+    "title": "E-Commerce App Redesign",
+    "category": "ui-ux",
+    "catLabel": "UI/UX Work",
+    "tags": [
+      "Figma",
+      "Prototyping"
+    ],
+    "desc": "Modernized user interface and streamlined checkout flow to reduce cart abandonment.",
+    "caseStudy": "<strong>Overview:</strong><br>A comprehensive UX audit and UI overhaul for an e-commerce mobile application, aimed at reducing friction in the user journey and decreasing cart abandonment.<br><br><strong>Design Approach & Concept:</strong><br>The redesign introduces a bottom-heavy navigation model for better thumb reachability. The checkout flow was reduced from 5 steps to a seamless 3-step process.",
+    "img": "https://images.unsplash.com/photo-1517292987719-0369a794ec0f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+  }
+];
 
   /* ============================================
      THEME TOGGLE
@@ -75,7 +1010,6 @@
   const themeToggle = document.getElementById('themeToggle');
   const root = document.documentElement;
 
-  // Load saved theme
   const savedTheme = localStorage.getItem('portfolio-theme') || 'dark';
   root.setAttribute('data-theme', savedTheme);
 
@@ -87,426 +1021,28 @@
   });
 
   /* ============================================
-     HERO CANVAS — PARTICLE GRID
-     ============================================ */
-  const canvas = document.getElementById('heroCanvas');
-  const ctx = canvas.getContext('2d');
-  let particles = [];
-  let heroAnimId;
-  let mouseX = -500;
-  let mouseY = -500;
-
-  function resizeCanvas() {
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-  }
-  let particleColor = '255, 255, 255'; // white for dark mode
-
-  function updateParticleColor() {
-    const theme = root.getAttribute('data-theme');
-    particleColor = theme === 'light' ? '20, 20, 30' : '255, 255, 255';
-  }
-  updateParticleColor();
-
-  // Listen for theme changes
-  const particleThemeObs = new MutationObserver(updateParticleColor);
-  particleThemeObs.observe(root, { attributes: true, attributeFilter: ['data-theme'] });
-
-  class Particle {
-    constructor() {
-      this.reset();
-    }
-    reset() {
-      this.x = Math.random() * canvas.width;
-      this.y = Math.random() * canvas.height;
-      this.size = Math.random() * 1.8 + 0.3;
-      this.speedX = (Math.random() - 0.5) * 0.2;
-      this.speedY = (Math.random() - 0.5) * 0.2;
-      this.opacity = Math.random() * 0.6 + 0.2;
-      this.baseOpacity = this.opacity;
-      this.twinkleSpeed = Math.random() * 0.015 + 0.005;
-      this.twinklePhase = Math.random() * Math.PI * 2;
-    }
-    update() {
-      this.x += this.speedX;
-      this.y += this.speedY;
-
-      // Twinkling effect like stars
-      this.twinklePhase += this.twinkleSpeed;
-      this.opacity = this.baseOpacity + Math.sin(this.twinklePhase) * 0.2;
-
-      const dx = mouseX - this.x;
-      const dy = mouseY - this.y;
-      const dist = Math.sqrt(dx * dx + dy * dy);
-      if (dist < 130) {
-        this.x -= dx * 0.012;
-        this.y -= dy * 0.012;
-        this.opacity = Math.min(this.opacity + 0.02, 1);
-      }
-
-      if (this.x < -10 || this.x > canvas.width + 10 || this.y < -10 || this.y > canvas.height + 10) {
-        this.reset();
-      }
-    }
-    draw() {
-      ctx.beginPath();
-      ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-      ctx.fillStyle = `rgba(${particleColor}, ${this.opacity})`;
-      ctx.fill();
-    }
-  }
-
-  function initParticles() {
-    const count = Math.min(Math.floor((canvas.width * canvas.height) / 9000), 180);
-    particles = [];
-    for (let i = 0; i < count; i++) {
-      particles.push(new Particle());
-    }
-  }
-
-  function drawGrid() {
-    // No grid — clean black galaxy background
-  }
-
-  function connectParticles() {
-    for (let i = 0; i < particles.length; i++) {
-      for (let j = i + 1; j < particles.length; j++) {
-        const dx = particles[i].x - particles[j].x;
-        const dy = particles[i].y - particles[j].y;
-        const dist = Math.sqrt(dx * dx + dy * dy);
-        if (dist < 100) {
-          ctx.beginPath();
-          ctx.strokeStyle = `rgba(${particleColor}, ${0.04 * (1 - dist / 100)})`;
-          ctx.lineWidth = 0.3;
-          ctx.moveTo(particles[i].x, particles[i].y);
-          ctx.lineTo(particles[j].x, particles[j].y);
-          ctx.stroke();
-        }
-      }
-    }
-  }
-
-  function animateHeroCanvas() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    drawGrid();
-    particles.forEach((p) => {
-      p.update();
-      p.draw();
-    });
-    connectParticles();
-    heroAnimId = requestAnimationFrame(animateHeroCanvas);
-  }
-
-  resizeCanvas();
-  initParticles();
-  animateHeroCanvas();
-
-  window.addEventListener('resize', () => {
-    resizeCanvas();
-    initParticles();
-  });
-
-  document.addEventListener('mousemove', (e) => {
-    mouseX = e.clientX;
-    mouseY = e.clientY;
-  });
-
-  /* ============================================
-     HERO DASHBOARD — 3D TILT EFFECT
-     ============================================ */
-  const dashboard = document.getElementById('heroDashboard');
-  const dashPerspective = document.getElementById('dashboardPerspective');
-
-  if (dashboard && dashPerspective) {
-    dashPerspective.addEventListener('mousemove', (e) => {
-      const rect = dashPerspective.getBoundingClientRect();
-      const x = e.clientX - rect.left;
-      const y = e.clientY - rect.top;
-      const centerX = rect.width / 2;
-      const centerY = rect.height / 2;
-
-      const rotateY = ((x - centerX) / centerX) * 8;
-      const rotateX = ((centerY - y) / centerY) * 6;
-
-      dashboard.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.01, 1.01, 1.01)`;
-    });
-
-    dashPerspective.addEventListener('mouseleave', () => {
-      dashboard.style.transform = 'rotateX(2deg) rotateY(-4deg) scale3d(1, 1, 1)';
-    });
-  }
-
-  /* ============================================
-     HERO DASHBOARD — INTERACTIVE CHARTS
-     ============================================ */
-  const quarterData = {
-    q1: {
-      // All Skills
-      bar: { labels: ['SQL', 'Power BI', 'Python', 'Excel', 'ETL', 'Data Viz'], revenue: [92, 90, 78, 88, 80, 88], costs: [85, 82, 70, 80, 72, 80] },
-      kpi: { revenue: '10+', users: '50K+', growth: '87%', revTrend: 'New', userTrend: 'Growing', growthTrend: '4 Certs' },
-      donut: [40, 25, 20, 15],
-      line: [30, 45, 55, 60, 72, 80, 87],
-      sparkValue: '↑ 4 Certs'
-    },
-    q2: {
-      // BI Tools
-      bar: { labels: ['Power BI', 'Tableau', 'Excel', 'Data Viz'], revenue: [90, 72, 88, 88], costs: [82, 65, 80, 80] },
-      kpi: { revenue: '5+', users: '30K+', growth: '85%', revTrend: 'Active', userTrend: 'Dashboards', growthTrend: '2 Certs' },
-      donut: [45, 15, 25, 15],
-      line: [40, 50, 58, 65, 75, 82, 90],
-      sparkValue: '↑ Power BI'
-    },
-    q3: {
-      // Languages
-      bar: { labels: ['SQL', 'Python', 'DAX', 'M Query'], revenue: [92, 78, 82, 65], costs: [85, 70, 75, 58] },
-      kpi: { revenue: '4', users: '20K+', growth: '79%', revTrend: 'Core', userTrend: 'Trained', growthTrend: '2 Certs' },
-      donut: [35, 30, 20, 15],
-      line: [35, 48, 55, 62, 68, 75, 79],
-      sparkValue: '↑ SQL Expert'
-    },
-    q4: {
-      // Data Eng
-      bar: { labels: ['ETL', 'Pandas', 'Azure', 'Databricks'], revenue: [80, 75, 60, 55], costs: [72, 68, 52, 48] },
-      kpi: { revenue: '3+', users: '10K+', growth: '68%', revTrend: 'Pipelines', userTrend: 'Automated', growthTrend: '1 Cert' },
-      donut: [20, 40, 25, 15],
-      line: [25, 35, 42, 48, 55, 62, 68],
-      sparkValue: '↑ ETL Pro'
-    }
-  };
-
-  // Dashboard chart shared options
-  const dashChartDefaults = {
-    responsive: true,
-    maintainAspectRatio: false,
-    plugins: {
-      legend: { display: false }, tooltip: {
-        backgroundColor: 'rgba(9,9,15,0.9)',
-        titleFont: { family: "'Space Grotesk', sans-serif", size: 11 },
-        bodyFont: { family: "'DM Sans', sans-serif", size: 11 },
-        cornerRadius: 8,
-        padding: 10,
-        borderColor: 'rgba(245,158,11,0.2)',
-        borderWidth: 1
-      }
-    },
-  };
-
-  // --- Bar Chart ---
-  const barCtx = document.getElementById('dashBarChart');
-  let dashBarChart = null;
-  if (barCtx) {
-    dashBarChart = new Chart(barCtx.getContext('2d'), {
-      type: 'bar',
-      data: {
-        labels: quarterData.q1.bar.labels,
-        datasets: [
-          {
-            label: 'Proficiency',
-            data: quarterData.q1.bar.revenue,
-            backgroundColor: 'rgba(245, 158, 11, 0.7)',
-            borderColor: '#F59E0B',
-            borderWidth: 1,
-            borderRadius: 6,
-            borderSkipped: false,
-          },
-          {
-            label: 'Experience',
-            data: quarterData.q1.bar.costs,
-            backgroundColor: 'rgba(249, 115, 22, 0.5)',
-            borderColor: '#F97316',
-            borderWidth: 1,
-            borderRadius: 6,
-            borderSkipped: false,
-          }
-        ]
-      },
-      options: {
-        ...dashChartDefaults,
-        scales: {
-          x: {
-            grid: { display: false },
-            ticks: { color: '#5E5C6E', font: { family: "'Space Mono', monospace", size: 9 } },
-            border: { display: false }
-          },
-          y: {
-            grid: { color: 'rgba(245,158,11,0.04)', lineWidth: 1 },
-            ticks: { display: false },
-            border: { display: false }
-          }
-        }
-      }
-    });
-  }
-
-  // --- Donut Chart ---
-  const donutCtx = document.getElementById('dashDonutChart');
-  let dashDonutChart = null;
-  if (donutCtx) {
-    dashDonutChart = new Chart(donutCtx.getContext('2d'), {
-      type: 'doughnut',
-      data: {
-        labels: ['BI Dashboard', 'Data Eng', 'Analytics', 'SQL'],
-        datasets: [{
-          data: quarterData.q1.donut,
-          backgroundColor: ['#F59E0B', '#F97316', '#FBBF24', '#EF4444'],
-          borderWidth: 0,
-          hoverOffset: 6,
-          spacing: 2,
-        }]
-      },
-      options: {
-        ...dashChartDefaults,
-        cutout: '68%',
-        plugins: {
-          ...dashChartDefaults.plugins,
-          tooltip: {
-            ...dashChartDefaults.plugins.tooltip,
-            callbacks: {
-              label: function (ctx) {
-                return ' ' + ctx.label + ': ' + ctx.raw + '%';
-              }
-            }
-          }
-        }
-      }
-    });
-  }
-
-  // --- Line / Sparkline Chart ---
-  const lineCtx = document.getElementById('dashLineChart');
-  let dashLineChart = null;
-  if (lineCtx) {
-    dashLineChart = new Chart(lineCtx.getContext('2d'), {
-      type: 'line',
-      data: {
-        labels: ['Jan', 'Mar', 'May', 'Jul', 'Sep', 'Nov', 'Now'],
-        datasets: [{
-          data: quarterData.q1.line,
-          borderColor: '#F59E0B',
-          backgroundColor: (ctx) => {
-            const chart = ctx.chart;
-            const { ctx: c, chartArea } = chart;
-            if (!chartArea) return 'rgba(245,158,11,0.1)';
-            const gradient = c.createLinearGradient(0, chartArea.top, 0, chartArea.bottom);
-            gradient.addColorStop(0, 'rgba(245, 158, 11, 0.25)');
-            gradient.addColorStop(1, 'rgba(245, 158, 11, 0.0)');
-            return gradient;
-          },
-          borderWidth: 2,
-          fill: true,
-          tension: 0.4,
-          pointRadius: 0,
-          pointHitRadius: 10,
-          pointHoverRadius: 5,
-          pointHoverBackgroundColor: '#F59E0B',
-          pointHoverBorderColor: '#fff',
-          pointHoverBorderWidth: 2,
-        }]
-      },
-      options: {
-        ...dashChartDefaults,
-        scales: {
-          x: {
-            grid: { display: false },
-            ticks: { color: '#5E5C6E', font: { family: "'Space Mono', monospace", size: 8 } },
-            border: { display: false }
-          },
-          y: {
-            grid: { color: 'rgba(245,158,11,0.03)' },
-            ticks: { display: false },
-            border: { display: false }
-          }
-        }
-      }
-    });
-  }
-
-  /* ============================================
-     HERO DASHBOARD — FILTER INTERACTIVITY
-     ============================================ */
-  document.querySelectorAll('.dash-filter').forEach((btn) => {
-    btn.addEventListener('click', () => {
-      // Update active state
-      document.querySelectorAll('.dash-filter').forEach((b) => b.classList.remove('active'));
-      btn.classList.add('active');
-
-      const q = btn.dataset.quarter;
-      const data = quarterData[q];
-      if (!data) return;
-
-      // Animate KPI values
-      const kpiRevEl = document.getElementById('kpiRevenue');
-      const kpiUserEl = document.getElementById('kpiUsers');
-      const kpiGrowthEl = document.getElementById('kpiGrowth');
-      const kpiRevTrendEl = document.getElementById('kpiRevTrend');
-      const kpiUserTrendEl = document.getElementById('kpiUserTrend');
-      const kpiGrowthTrendEl = document.getElementById('kpiGrowthTrend');
-      const sparkValueEl = document.getElementById('dashSparkValue');
-
-      // Quick flash animation
-      [kpiRevEl, kpiUserEl, kpiGrowthEl].forEach((el) => {
-        el.style.opacity = '0';
-        el.style.transform = 'translateY(-4px)';
-        setTimeout(() => {
-          el.style.transition = 'all 0.3s ease';
-          el.style.opacity = '1';
-          el.style.transform = 'translateY(0)';
-        }, 120);
-      });
-
-      setTimeout(() => {
-        if (kpiRevEl) kpiRevEl.textContent = data.kpi.revenue;
-        if (kpiUserEl) kpiUserEl.textContent = data.kpi.users;
-        if (kpiGrowthEl) kpiGrowthEl.textContent = data.kpi.growth;
-        if (kpiRevTrendEl) kpiRevTrendEl.innerHTML = '<i class="fas fa-arrow-up"></i> ' + data.kpi.revTrend;
-        if (kpiUserTrendEl) kpiUserTrendEl.innerHTML = '<i class="fas fa-arrow-up"></i> ' + data.kpi.userTrend;
-        if (kpiGrowthTrendEl) kpiGrowthTrendEl.innerHTML = '<i class="fas fa-arrow-up"></i> ' + data.kpi.growthTrend;
-        if (sparkValueEl) sparkValueEl.textContent = data.sparkValue;
-      }, 100);
-
-      // Update Bar Chart
-      if (dashBarChart) {
-        dashBarChart.data.labels = data.bar.labels;
-        dashBarChart.data.datasets[0].data = data.bar.revenue;
-        dashBarChart.data.datasets[1].data = data.bar.costs;
-        dashBarChart.update('active');
-      }
-
-      // Update Donut Chart
-      if (dashDonutChart) {
-        dashDonutChart.data.datasets[0].data = data.donut;
-        dashDonutChart.update('active');
-      }
-
-      // Update Line Chart
-      if (dashLineChart) {
-        dashLineChart.data.datasets[0].data = data.line;
-        dashLineChart.update('active');
-      }
-    });
-  });
-
-  /* ============================================
      TYPEWRITER
      ============================================ */
-  const titles = ['Data Analyst', 'BI Developer', 'SQL Expert', 'Power BI Specialist'];
+  const titles = ['UI/UX Design', 'Graphic Design', 'Digital Marketing', 'Video Editing'];
   let titleIdx = 0;
   let charIdx = 0;
   let isDeleting = false;
   const typeEl = document.getElementById('typewriterText');
 
   function typewrite() {
+    if (!typeEl) return;
     const current = titles[titleIdx];
+    
     if (isDeleting) {
       typeEl.textContent = current.substring(0, charIdx--);
     } else {
       typeEl.textContent = current.substring(0, charIdx++);
     }
 
-    let speed = isDeleting ? 35 : 75;
+    let speed = isDeleting ? 30 : 80;
 
     if (!isDeleting && charIdx === current.length + 1) {
-      speed = 2200;
+      speed = 2000;
       isDeleting = true;
     } else if (isDeleting && charIdx < 0) {
       isDeleting = false;
@@ -519,24 +1055,26 @@
   typewrite();
 
   /* ============================================
-     NAVBAR — scroll behavior & active link
+     NAVBAR BEHAVIOR
      ============================================ */
   const navbar = document.getElementById('mainNavbar');
-
   window.addEventListener('scroll', () => {
-    navbar.classList.toggle('scrolled', window.scrollY > 60);
+    if (navbar) {
+      navbar.classList.toggle('scrolled', window.scrollY > 50);
+    }
     updateActiveNav();
   });
 
   function updateActiveNav() {
     const sections = document.querySelectorAll('section[id]');
-    const scrollY = window.scrollY + 130;
+    const scrollY = window.scrollY + 150;
 
     sections.forEach((sec) => {
       const top = sec.offsetTop;
       const height = sec.offsetHeight;
       const id = sec.getAttribute('id');
       const link = document.querySelector(`.navbar-nav a[href="#${id}"]`);
+      
       if (link) {
         if (scrollY >= top && scrollY < top + height) {
           document.querySelectorAll('.navbar-nav .nav-link').forEach((a) => a.classList.remove('active'));
@@ -546,359 +1084,535 @@
     });
   }
 
-  // Close mobile nav on link click
-  document.querySelectorAll('.navbar-nav .nav-link').forEach((link) => {
-    link.addEventListener('click', () => {
-      const toggler = document.querySelector('.navbar-toggler');
-      const collapse = document.getElementById('navbarContent');
-      if (collapse.classList.contains('show')) {
-        toggler.click();
-      }
+  /* ============================================
+     RENDER SKILLS
+     ============================================ */
+  const skillsContainer = document.querySelector('.skills-container');
+  if (skillsContainer) {
+    skills.forEach((skill, i) => {
+      const card = document.createElement('div');
+      card.className = `skill-card reveal`;
+      card.style.transitionDelay = `${i * 0.05}s`;
+      card.innerHTML = `
+        <div class="skill-icon"><i class="${skill.icon}"></i></div>
+        <div class="skill-name">${skill.name}</div>
+        <div class="skill-category">${skill.category}</div>
+      `;
+      skillsContainer.appendChild(card);
     });
-  });
+  }
 
   /* ============================================
-     RENDER SKILLS GRID
+     CONTACT FORM (Web3Forms)
      ============================================ */
-  const skillsGrid = document.getElementById('skillsGrid');
+  const contactForm = document.getElementById('contactForm');
+  if (contactForm) {
+    contactForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
 
-  skills.forEach((skill, i) => {
-    const col = document.createElement('div');
-    col.className = 'col';
+      const submitBtn = contactForm.querySelector('button[type="submit"]');
+      const originalBtnHTML = submitBtn.innerHTML;
 
-    const card = document.createElement('div');
-    card.className = `skill-card glass-card reveal stagger-${i + 1}`;
-    card.innerHTML = `
-      <span class="skill-icon-wrap" style="color:${skill.color}"><i class="${skill.icon}"></i></span>
-      <div class="skill-name">${skill.name}</div>
-      <div class="skill-category">${skill.category}</div>
-    `;
-    col.appendChild(card);
-    skillsGrid.appendChild(col);
+      // Basic validation
+      const name = contactForm.querySelector('[name="name"]').value.trim();
+      const email = contactForm.querySelector('[name="email"]').value.trim();
+      const message = contactForm.querySelector('[name="message"]').value.trim();
+
+      if (!name || !email || !message) {
+        showFormFeedback('Please fill in all fields.', 'error');
+        return;
+      }
+
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(email)) {
+        showFormFeedback('Please enter a valid email address.', 'error');
+        return;
+      }
+
+      // Loading state
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i> Sending...';
+
+      try {
+        const formData = new FormData(contactForm);
+        const response = await fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          body: formData
+        });
+
+        const result = await response.json();
+
+        if (result.success) {
+          showFormFeedback('Message sent successfully! I\'ll get back to you soon.', 'success');
+          contactForm.reset();
+        } else {
+          showFormFeedback('Something went wrong. Please try again.', 'error');
+        }
+      } catch (err) {
+        showFormFeedback('Network error. Please check your connection.', 'error');
+      }
+
+      // Restore button
+      submitBtn.disabled = false;
+      submitBtn.innerHTML = originalBtnHTML;
+    });
+
+    function showFormFeedback(message, type) {
+      // Remove any existing feedback
+      const existing = contactForm.querySelector('.form-feedback');
+      if (existing) existing.remove();
+
+      const feedback = document.createElement('div');
+      feedback.className = `form-feedback form-feedback-${type}`;
+      feedback.innerHTML = `<i class="fas ${type === 'success' ? 'fa-check-circle' : 'fa-exclamation-circle'} me-2"></i>${message}`;
+      contactForm.appendChild(feedback);
+
+      // Auto-remove after 5 seconds
+      setTimeout(() => {
+        feedback.style.opacity = '0';
+        setTimeout(() => feedback.remove(), 300);
+      }, 5000);
+    }
+  }
+
+  /* ============================================
+     SMOOTH & BOUNCY SCROLL REVEAL (IntersectionObserver)
+     ============================================ */
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('active');
+      } else {
+        entry.target.classList.remove('active');
+      }
+    });
+  }, {
+    threshold: 0.05,
+    rootMargin: '50px 0px -10px 0px'
   });
+
+  // Small delay to ensure DOM is fully ready
+  setTimeout(() => {
+    document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale').forEach((el) => {
+      revealObserver.observe(el);
+    });
+  }, 100);
 
   /* ============================================
      RENDER PROJECTS
      ============================================ */
   const projectsGrid = document.getElementById('projectsGrid');
-
-  projects.forEach((project, i) => {
-    const col = document.createElement('div');
-    col.className = 'col-lg-6';
-
-    const card = document.createElement('a');
-    card.href = project.link;
-    card.target = '_blank';
-    card.rel = 'noopener noreferrer';
-    card.className = `project-card glass-card reveal stagger-${i + 1}`;
-    card.style.textDecoration = 'none';
-    card.style.color = 'inherit';
-    card.innerHTML = `
-      <div class="project-card-inner">
-        <div class="project-icon-wrap"><i class="${project.icon}"></i></div>
-        <h3>${project.title}</h3>
-        <div class="project-tags">
-          ${project.tags.map((t) => `<span class="project-tag">${t}</span>`).join('')}
-        </div>
-        <p class="project-desc">${project.desc}</p>
-        <div class="project-overlay">
-          <span><i class="fab fa-github"></i> View on GitHub</span>
-        </div>
-      </div>
-    `;
-    col.appendChild(card);
-    projectsGrid.appendChild(col);
-  });
-
-  /* ============================================
-     CHART.JS — SKILLS RADAR
-     ============================================ */
-  const radarCtx = document.getElementById('skillsRadar').getContext('2d');
-
-  function getChartColors() {
-    const isDark = root.getAttribute('data-theme') !== 'light';
-    return {
-      bg: isDark ? 'rgba(245, 158, 11, 0.12)' : 'rgba(217, 119, 6, 0.1)',
-      border: isDark ? 'rgba(245, 158, 11, 0.75)' : 'rgba(217, 119, 6, 0.8)',
-      point: isDark ? '#FBBF24' : '#D97706',
-      labels: isDark ? '#9896A8' : '#5A5873',
-      grid: isDark ? 'rgba(255,255,255,0.05)' : 'rgba(0,0,0,0.05)',
-    };
+  let currentFilter = 'all';
+  let showAllProjects = false;
+  
+  function renderProjects(filter = currentFilter, forceShowAll = false) {
+    if (!projectsGrid) return;
+    
+    currentFilter = filter;
+    showAllProjects = forceShowAll;
+    
+    projectsGrid.innerHTML = '';
+    
+    const filtered = currentFilter === 'all' ? projects : projects.filter(p => p.category === currentFilter);
+    const itemsToDisplay = showAllProjects ? filtered : filtered.slice(0, 4);
+    
+    itemsToDisplay.forEach((project, i) => {
+      const globalIndex = projects.indexOf(project);
+      const col = document.createElement('div');
+      col.className = 'col-lg-6 col-md-6 reveal';
+      col.style.transitionDelay = `${(i % 4) * 0.1}s`;
+      col.innerHTML = `
+        <a href="#" class="project-card" data-index="${globalIndex}">
+          <div class="project-img-wrap">
+            ${project.img.toLowerCase().endsWith('.mp4') ? `<video src="${project.img}" muted loop autoplay playsinline style="width:100%; height:100%; object-fit:cover;"></video>` : `<img src="${project.img}" loading="lazy" alt="${project.title}">`}
+          </div>
+          <div class="project-content">
+            <div class="project-category">${project.catLabel}</div>
+            <h3 class="project-title">${project.title}</h3>
+            <p class="project-desc">${project.desc}</p>
+            <div class="project-tags">
+              ${project.tags.map(t => `<span class="project-tag">${t}</span>`).join('')}
+            </div>
+          </div>
+        </a>
+      `;
+      projectsGrid.appendChild(col);
+      
+      // Observe the new element for scroll animations
+      if (revealObserver) {
+        revealObserver.observe(col);
+      }
+    });
+    
+    const loadMoreContainer = document.getElementById('loadMoreContainer');
+    if (loadMoreContainer) {
+      if (filtered.length > 4 && !showAllProjects) {
+        loadMoreContainer.style.display = 'block';
+      } else {
+        loadMoreContainer.style.display = 'none';
+      }
+    }
+    
+    // Re-trigger observer for new elements
+    setTimeout(() => {
+      document.querySelectorAll('#projectsGrid .reveal').forEach(el => revealObserver.observe(el));
+    }, 100);
   }
 
-  let chartColors = getChartColors();
+  renderProjects();
 
-  const radarChart = new Chart(radarCtx, {
-    type: 'radar',
-    data: {
-      labels: ['SQL', 'Power BI', 'Python', 'Excel', 'ETL', 'Data Viz', 'Dashboards', 'Data Cleaning'],
-      datasets: [
-        {
-          label: 'Skill Level',
-          data: [92, 90, 78, 88, 80, 88, 92, 85],
-          backgroundColor: chartColors.bg,
-          borderColor: chartColors.border,
-          pointBackgroundColor: chartColors.point,
-          pointBorderColor: chartColors.point,
-          pointHoverBackgroundColor: '#fff',
-          pointHoverBorderColor: chartColors.point,
-          borderWidth: 2,
-          pointRadius: 4,
-          pointHoverRadius: 6,
-        },
-      ],
-    },
-    options: {
-      responsive: true,
-      maintainAspectRatio: true,
-      plugins: { legend: { display: false } },
-      scales: {
-        r: {
-          beginAtZero: true,
-          max: 100,
-          ticks: { display: false, stepSize: 20 },
-          grid: { color: chartColors.grid, lineWidth: 1 },
-          angleLines: { color: chartColors.grid },
-          pointLabels: {
-            color: chartColors.labels,
-            font: { family: "'Space Grotesk', sans-serif", size: 11, weight: '500' },
-          },
-        },
-      },
-    },
+  const loadMoreBtn = document.getElementById('loadMoreBtn');
+  if (loadMoreBtn) {
+    loadMoreBtn.addEventListener('click', () => {
+      renderProjects(currentFilter, true);
+    });
+  }
+
+  // Filter Buttons Logic
+  document.querySelectorAll('.filter-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      renderProjects(btn.dataset.filter, false);
+    });
   });
-
-  // Update chart colors on theme change
-  const themeObs = new MutationObserver(() => {
-    const c = getChartColors();
-    radarChart.data.datasets[0].backgroundColor = c.bg;
-    radarChart.data.datasets[0].borderColor = c.border;
-    radarChart.data.datasets[0].pointBackgroundColor = c.point;
-    radarChart.data.datasets[0].pointBorderColor = c.point;
-    radarChart.data.datasets[0].pointHoverBorderColor = c.point;
-    radarChart.options.scales.r.grid.color = c.grid;
-    radarChart.options.scales.r.angleLines.color = c.grid;
-    radarChart.options.scales.r.pointLabels.color = c.labels;
-    radarChart.update();
-  });
-
-  themeObs.observe(root, { attributes: true, attributeFilter: ['data-theme'] });
 
   /* ============================================
-     ANIMATED STAT COUNTERS
+     PROJECT MODAL LOGIC
+     ============================================ */
+  const modal = document.getElementById('projectModal');
+  const modalClose = document.getElementById('modalClose');
+  const modalOverlay = document.getElementById('modalOverlay');
+
+  function openModal(index) {
+    const project = projects[index];
+    if(!project || !modal) return;
+    
+    const mediaContainer = document.getElementById('modalMediaContainer');
+    if (project.img.toLowerCase().endsWith('.mp4')) {
+      mediaContainer.innerHTML = `<video src="${project.img}" class="modal-main-img" controls autoplay loop playsinline></video>`;
+    } else {
+      mediaContainer.innerHTML = `<img src="${project.img}" alt="${project.title}" class="modal-main-img">`;
+    }
+    
+    document.getElementById('modalCategory').textContent = project.catLabel;
+    document.getElementById('modalTitle').textContent = project.title;
+    document.getElementById('modalDesc').innerHTML = project.caseStudy || project.desc;
+    
+    const tagsContainer = document.getElementById('modalTags');
+    tagsContainer.innerHTML = project.tags.map(t => `<span class="project-tag">${t}</span>`).join('');
+    
+    modal.classList.add('show');
+    document.body.style.overflow = 'hidden'; // prevent background scrolling
+  }
+
+  function closeModal() {
+    if(!modal) return;
+    modal.classList.remove('show');
+    document.body.style.overflow = '';
+  }
+
+  if(modalClose) modalClose.addEventListener('click', closeModal);
+  if(modalOverlay) modalOverlay.addEventListener('click', closeModal);
+
+  // Delegate click for dynamically rendered project cards
+  if(projectsGrid) {
+    projectsGrid.addEventListener('click', (e) => {
+      const card = e.target.closest('.project-card');
+      if(card) {
+        e.preventDefault();
+        const index = card.getAttribute('data-index');
+        openModal(index);
+      }
+    });
+  }
+
+  /* ============================================
+     STAT COUNTERS
      ============================================ */
   function animateCounters() {
-    document.querySelectorAll('.stat-number[data-count]').forEach((counter) => {
-      const target = parseInt(counter.getAttribute('data-count'));
-      const duration = 2200;
+    document.querySelectorAll('.stat-num').forEach(counter => {
+      const target = parseInt(counter.getAttribute('data-target'));
+      const duration = 2000;
       const start = performance.now();
 
       function step(now) {
-        const elapsed = now - start;
-        const progress = Math.min(elapsed / duration, 1);
-        const eased = 1 - Math.pow(1 - progress, 3);
-        const current = Math.floor(eased * target);
-        counter.textContent = (target >= 1000 ? current.toLocaleString() : current) + '+';
-        if (progress < 1) requestAnimationFrame(step);
+        const progress = Math.min((now - start) / duration, 1);
+        // easeOutQuart
+        const ease = 1 - Math.pow(1 - progress, 4);
+        counter.textContent = Math.floor(ease * target) + '+';
+        if (progress < 1) {
+          requestAnimationFrame(step);
+        }
       }
-
       requestAnimationFrame(step);
     });
   }
 
-  const radarOriginalData = [92, 90, 78, 88, 80, 88, 92, 85];
-  let radarInterval;
-  
-  const aboutObserver = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          animateCounters();
-          
-          // Animate Radar Chart initially
-          radarChart.data.datasets[0].data = [...radarOriginalData];
-          radarChart.update();
-
-          // Start dynamic shape shifting
-          if (!radarInterval) {
-            radarInterval = setInterval(() => {
-              const newData = radarOriginalData.map(() => {
-                // Massive random flux between 25 and 100 for a wild shape-shifting effect
-                return Math.floor(Math.random() * 75) + 25;
-              });
-              radarChart.data.datasets[0].data = newData;
-              radarChart.update();
-            }, 2000); // morphs drastically every 2 seconds
-          }
-        } else {
-          // Reset counters
-          document.querySelectorAll('.stat-number[data-count]').forEach((counter) => {
-            counter.textContent = '0+';
-          });
-          
-          // Stop dynamic shape shifting
-          if (radarInterval) {
-            clearInterval(radarInterval);
-            radarInterval = null;
-          }
-
-          // Reset Radar Chart
-          radarChart.data.datasets[0].data = [0, 0, 0, 0, 0, 0, 0, 0];
-          radarChart.update('none'); // Update without animation so it resets instantly in background
-        }
-      });
-    },
-    { threshold: 0.25 }
-  );
-  aboutObserver.observe(document.getElementById('about'));
-
-  /* ============================================
-     SCROLL REVEAL — Bouncy Spring Animations
-     ============================================ */
-  // IntersectionObserver for buttery smooth and repeatable reveal
-  const revealObserver = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      const el = entry.target;
-      if (entry.isIntersecting) {
-        // Add dynamic stagger based on sibling index
-        const siblings = el.parentElement
-          ? Array.from(el.parentElement.children).filter(c =>
-            c.classList.contains('reveal') ||
-            c.classList.contains('reveal-left') ||
-            c.classList.contains('reveal-right') ||
-            c.classList.contains('reveal-scale')
-          )
-          : [];
-        const idx = siblings.indexOf(el);
-        if (idx > 0 && !el.style.transitionDelay) {
-          el.style.transitionDelay = `${idx * 0.08}s`;
-        }
-        el.classList.add('active');
-      } else {
-        // Remove class for continuous animation on scroll up and down
-        el.classList.remove('active');
-        // Optional: Reset transition delay so stagger plays cleanly every time
-        el.style.transitionDelay = '';
+  const aboutSection = document.getElementById('about');
+  if (aboutSection) {
+    const statObserver = new IntersectionObserver((entries) => {
+      if (entries[0].isIntersecting) {
+        animateCounters();
+        statObserver.disconnect();
       }
-    });
-  }, {
-    threshold: 0.1,
-    rootMargin: '0px 0px -50px 0px'
-  });
-
-  document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale').forEach((el) => {
-    revealObserver.observe(el);
-  });
-
-  /* ============================================
-     PARALLAX ON SCROLL
-     ============================================ */
-  const parallaxEls = document.querySelectorAll('.parallax-el');
-  const parallaxShapes = document.querySelectorAll('.parallax-shape');
-
-  function handleParallax() {
-    const scrollY = window.scrollY;
-
-    parallaxEls.forEach((el) => {
-      const speed = parseFloat(el.dataset.speed) || 0.05;
-      const direction = el.dataset.direction || 'y';
-      const val = scrollY * speed;
-
-      if (direction === 'y') {
-        el.style.transform = `translateY(${val}px)`;
-      } else if (direction === 'x') {
-        el.style.transform = `translateX(${val}px)`;
-      } else if (direction === 'rotate') {
-        el.style.transform = `rotate(${val}deg)`;
-      } else if (direction === 'xy') {
-        el.style.transform = `translate(${val * 0.5}px, ${val}px)`;
-      }
-    });
-
-    parallaxShapes.forEach((shape) => {
-      const speed = parseFloat(shape.dataset.speed) || 0.08;
-      shape.style.transform = `translateY(${scrollY * speed}px)`;
-    });
+    }, { threshold: 0.5 });
+    statObserver.observe(aboutSection);
   }
 
-  window.addEventListener('scroll', handleParallax, { passive: true });
+
 
   /* ============================================
-     SMOOTH SCROLL PROGRESS (navbar underline)
+     THREE.JS INTERACTIVE 3D GRAPHIC (ICONS & OBJECTS)
      ============================================ */
+  const canvasContainer = document.getElementById('hero3DCanvas');
+  if (canvasContainer && typeof THREE !== 'undefined') {
+    const scene = new THREE.Scene();
+    
+    const camera = new THREE.PerspectiveCamera(45, canvasContainer.clientWidth / canvasContainer.clientHeight, 0.1, 1000);
+    camera.position.z = 8;
 
-  /* ============================================
-     CONTACT FORM — Web3Forms Email Sender
-     ============================================ */
-  const contactForm = document.getElementById('contactForm');
-  const formSubmitBtn = document.getElementById('formSubmitBtn');
-  const formStatus = document.getElementById('formStatus');
+    const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+    renderer.setSize(canvasContainer.clientWidth, canvasContainer.clientHeight);
+    renderer.setPixelRatio(window.devicePixelRatio);
+    canvasContainer.appendChild(renderer.domElement);
 
-  function showStatus(type, message) {
-    formStatus.style.display = 'block';
-    formStatus.className = `form-status form-status--${type}`;
-    formStatus.innerHTML = message;
-    setTimeout(() => {
-      formStatus.style.display = 'none';
-    }, 5000);
-  }
+    const group = new THREE.Group();
+    scene.add(group);
 
-  contactForm.addEventListener('submit', async function (e) {
-    e.preventDefault();
+    const floatingObjects = [];
 
-    // Basic validation
-    const name = document.getElementById('contactName').value.trim();
-    const email = document.getElementById('contactEmail').value.trim();
-    const message = document.getElementById('contactMessage').value.trim();
-
-    if (!name || !email || !message) {
-      showStatus('error', '<i class="fas fa-exclamation-circle"></i> Please fill in all fields.');
-      return;
+    // Helper to create icon textures
+    function createIconTexture(iconCode, color, isBrand = false) {
+      const canvas = document.createElement('canvas');
+      canvas.width = 128;
+      canvas.height = 128;
+      const ctx = canvas.getContext('2d');
+      ctx.font = `900 70px ${isBrand ? '"Font Awesome 6 Brands"' : '"Font Awesome 6 Free"'}`;
+      ctx.fillStyle = color;
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
+      ctx.fillText(iconCode, 64, 64);
+      return new THREE.CanvasTexture(canvas);
     }
 
-    // Loading state
-    const origHTML = formSubmitBtn.innerHTML;
-    formSubmitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
-    formSubmitBtn.disabled = true;
+    const icons = [
+      { code: '\uf16d', color: '#ec4899', brand: true },  // Instagram
+      { code: '\uf08c', color: '#0077b5', brand: true },  // LinkedIn
+      { code: '\uf0a1', color: '#8b5cf6', brand: false }, // Bullhorn
+      { code: '\uf201', color: '#10b981', brand: false }, // Chart line
+      { code: '\uf140', color: '#ef4444', brand: false }, // Bullseye
+      { code: '\uf004', color: '#f43f5e', brand: false }, // Heart
+      { code: '\uf164', color: '#3b82f6', brand: false }, // Thumbs up
+      { code: '\uf1e0', color: '#a855f7', brand: false }, // Share
+    ];
 
-    try {
-      const formData = new FormData(contactForm);
-      const response = await fetch('https://api.web3forms.com/submit', {
-        method: 'POST',
-        body: formData
+    document.fonts.ready.then(() => {
+      // Add Icon Sprites after fonts are loaded
+      icons.forEach(iconData => {
+        const tex = createIconTexture(iconData.code, iconData.color, iconData.brand);
+        const mat = new THREE.SpriteMaterial({ map: tex, transparent: true });
+        const sprite = new THREE.Sprite(mat);
+        
+        sprite.position.set((Math.random() - 0.5) * 8, (Math.random() - 0.5) * 8, (Math.random() - 0.5) * 4);
+        sprite.userData = { speed: 0.5 + Math.random() * 1.5, phase: Math.random() * Math.PI * 2, baseY: sprite.position.y };
+        sprite.scale.set(1.2, 1.2, 1);
+        
+        group.add(sprite);
+        floatingObjects.push(sprite);
+      });
+    });
+
+    // Add some 3D geometric shapes (UI/UX vibe)
+    const geometries = [
+      new THREE.IcosahedronGeometry(0.5, 0),
+      new THREE.TorusGeometry(0.4, 0.1, 16, 32),
+      new THREE.OctahedronGeometry(0.5, 0),
+      new THREE.BoxGeometry(0.6, 0.6, 0.6)
+    ];
+
+    const materials = [
+      new THREE.MeshBasicMaterial({ color: 0x8b5cf6, wireframe: true, transparent: true, opacity: 0.4 }),
+      new THREE.MeshBasicMaterial({ color: 0xec4899, wireframe: true, transparent: true, opacity: 0.4 }),
+      new THREE.MeshBasicMaterial({ color: 0x3b82f6, wireframe: true, transparent: true, opacity: 0.4 })
+    ];
+
+    for (let i = 0; i < 10; i++) {
+      const geo = geometries[Math.floor(Math.random() * geometries.length)];
+      const mat = materials[Math.floor(Math.random() * materials.length)];
+      const mesh = new THREE.Mesh(geo, mat);
+
+      mesh.position.set((Math.random() - 0.5) * 8, (Math.random() - 0.5) * 8, (Math.random() - 0.5) * 4);
+      mesh.rotation.set(Math.random() * Math.PI, Math.random() * Math.PI, Math.random() * Math.PI);
+      mesh.userData = {
+        speed: 0.5 + Math.random() * 1.5, phase: Math.random() * Math.PI * 2, baseY: mesh.position.y,
+        rotSpeedX: (Math.random() - 0.5) * 0.02, rotSpeedY: (Math.random() - 0.5) * 0.02
+      };
+
+      group.add(mesh);
+      floatingObjects.push(mesh);
+    }
+
+    let mouseX = 0;
+    let mouseY = 0;
+
+    document.addEventListener('mousemove', (e) => {
+      mouseX = (e.clientX - window.innerWidth / 2);
+      mouseY = (e.clientY - window.innerHeight / 2);
+    });
+
+    window.addEventListener('resize', () => {
+      if (canvasContainer.clientWidth === 0) return;
+      camera.aspect = canvasContainer.clientWidth / canvasContainer.clientHeight;
+      camera.updateProjectionMatrix();
+      renderer.setSize(canvasContainer.clientWidth, canvasContainer.clientHeight);
+    });
+
+    const clock = new THREE.Clock();
+    
+    // Performance fix: Stop rendering 3D scene when out of view
+    let isCanvasVisible = true;
+    const canvasObserver = new IntersectionObserver((entries) => {
+      if (entries && entries.length > 0) {
+        isCanvasVisible = entries[0].isIntersecting;
+      }
+    });
+    canvasObserver.observe(canvasContainer);
+
+    function animate() {
+      requestAnimationFrame(animate);
+      if (!isCanvasVisible) return; // Skip heavy rendering
+
+      const elapsedTime = clock.getElapsedTime();
+
+      floatingObjects.forEach(obj => {
+        obj.position.y = obj.userData.baseY + Math.sin(elapsedTime * obj.userData.speed + obj.userData.phase) * 0.5;
+        if (obj.isMesh) {
+          obj.rotation.x += obj.userData.rotSpeedX;
+          obj.rotation.y += obj.userData.rotSpeedY;
+        }
       });
 
-      const data = await response.json();
+      group.rotation.y += 0.05 * (mouseX * 0.001 - group.rotation.y);
+      group.rotation.x += 0.05 * (mouseY * 0.001 - group.rotation.x);
 
-      if (data.success) {
-        showStatus('success', '<i class="fas fa-check-circle"></i> Message sent! I\'ll get back to you soon.');
-        contactForm.reset();
-      } else {
-        showStatus('error', '<i class="fas fa-times-circle"></i> ' + (data.message || 'Something went wrong. Please try again.'));
-      }
-    } catch (err) {
-      showStatus('error', '<i class="fas fa-times-circle"></i> Network error. Please check your connection.');
-    } finally {
-      formSubmitBtn.innerHTML = origHTML;
-      formSubmitBtn.disabled = false;
+      renderer.render(scene, camera);
     }
-  });
+    
+    setTimeout(() => {
+      if (canvasContainer.clientWidth > 0) {
+        camera.aspect = canvasContainer.clientWidth / canvasContainer.clientHeight;
+        camera.updateProjectionMatrix();
+        renderer.setSize(canvasContainer.clientWidth, canvasContainer.clientHeight);
+      }
+    }, 100);
+
+    animate();
+  }
 
   /* ============================================
-     PRELOADER
+     STARS BACKGROUND (CANVAS)
      ============================================ */
-  window.addEventListener('load', () => {
-    // Artificial delay to showcase the smooth preloader animation
-    setTimeout(() => {
-      document.body.classList.add('loaded');
+  const starsCanvas = document.getElementById('starsCanvas');
+  if (starsCanvas) {
+    const ctx = starsCanvas.getContext('2d');
+    let width, height;
+    let stars = [];
+    let mouse = { x: null, y: null };
+
+    function resize() {
+      width = window.innerWidth;
+      height = window.innerHeight;
+      starsCanvas.width = width;
+      starsCanvas.height = height;
+    }
+    
+    window.addEventListener('resize', resize);
+    resize();
+
+    window.addEventListener('mousemove', (e) => {
+      mouse.x = e.clientX;
+      mouse.y = e.clientY;
+    });
+
+    window.addEventListener('mouseout', () => {
+      mouse.x = null;
+      mouse.y = null;
+    });
+
+    class Star {
+      constructor() {
+        this.x = Math.random() * width;
+        this.y = Math.random() * height;
+        this.size = Math.random() * 1.5 + 0.5;
+        this.baseX = this.x;
+        this.baseY = this.y;
+        this.density = (Math.random() * 20) + 1;
+        this.opacity = Math.random();
+        this.speedX = (Math.random() - 0.5) * 0.2;
+        this.speedY = (Math.random() - 0.5) * 0.2;
+      }
       
-      // Remove preloader DOM element after the animations complete
-      setTimeout(() => {
-        const preloader = document.getElementById('preloader');
-        if (preloader) {
-          preloader.remove();
+      draw(color) {
+        ctx.fillStyle = `rgba(${color}, ${this.opacity})`;
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        ctx.closePath();
+        ctx.fill();
+      }
+      
+      update(color) {
+        this.x += this.speedX;
+        this.y += this.speedY;
+
+        if (this.x > width) this.x = 0;
+        if (this.x < 0) this.x = width;
+        if (this.y > height) this.y = 0;
+        if (this.y < 0) this.y = height;
+
+        // Interaction with mouse
+        if (mouse.x != null && mouse.y != null) {
+          let dx = mouse.x - this.x;
+          let dy = mouse.y - this.y;
+          let distance = Math.sqrt(dx * dx + dy * dy);
+          let forceDirectionX = dx / distance;
+          let forceDirectionY = dy / distance;
+          let maxDistance = 150;
+          let force = (maxDistance - distance) / maxDistance;
+          let directionX = forceDirectionX * force * this.density;
+          let directionY = forceDirectionY * force * this.density;
+
+          if (distance < maxDistance) {
+            this.x -= directionX;
+            this.y -= directionY;
+          }
         }
-      }, 1500);
-    }, 1200); 
-  });
+        this.draw(color);
+      }
+    }
+
+    function initStars() {
+      stars = [];
+      let numStars = Math.floor((width * height) / 10000);
+      for (let i = 0; i < numStars; i++) {
+        stars.push(new Star());
+      }
+    }
+
+    function animateStars() {
+      requestAnimationFrame(animateStars);
+      ctx.clearRect(0, 0, width, height);
+      
+      const theme = document.documentElement.getAttribute('data-theme');
+      const color = theme === 'light' ? '15, 23, 42' : '255, 255, 255';
+      
+      for (let i = 0; i < stars.length; i++) {
+        stars[i].update(color);
+      }
+    }
+
+    initStars();
+    animateStars();
+  }
+
 })();
