@@ -1489,7 +1489,12 @@ img {
 
   /* ---- Compact 2-column mobile footer ---- */
   .footer { padding: 40px 0 24px; }
-  .footer-bg-text { font-size: 18vw; }
+  .footer-bg-text {
+    font-size: 18vw;
+    top: auto;
+    bottom: 0;
+    transform: translateX(-50%) translateY(20%);
+  }
 
   .footer-grid {
     display: grid !important;
