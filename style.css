@@ -1169,6 +1169,11 @@ img {
   max-width: 300px;
 }
 
+/* Desktop: hide the Follow Me inside footer-left; show the Explore/CTAs in right col */
+.footer-follow {
+  margin-top: 30px;
+}
+
 .footer-col h4 {
   color: var(--accent-secondary);
   font-size: 1rem;
@@ -1476,12 +1481,86 @@ img {
   .contact-card { padding: 40px 30px; }
   .contact-form-panel { padding: 30px; }
   .contact-info-panel { padding: 20px 30px; }
-  .footer .row { gap: 30px !important; }
   .modal-content-wrapper { width: 95%; }
   .modal-body .row { flex-direction: column; }
   .modal-image-col { padding: 20px; }
   .modal-text-col { padding: 24px; }
   .modal-title { font-size: 1.6rem; }
+
+  /* ---- Compact 2-column mobile footer ---- */
+  .footer { padding: 40px 0 24px; }
+  .footer-bg-text { font-size: 18vw; }
+
+  .footer-grid {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 20px 24px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .footer-left,
+  .footer-right {
+    width: 100% !important;
+    max-width: 100% !important;
+    flex: none !important;
+    padding: 0 !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+
+  .footer-heading {
+    font-size: 1.3rem;
+    margin-bottom: 12px;
+  }
+
+  .footer-desc {
+    font-size: 0.82rem;
+    max-width: none;
+    margin-bottom: 20px;
+    line-height: 1.5;
+  }
+
+  .footer-follow { margin-top: 0; }
+
+  .footer-col h4 {
+    font-size: 0.9rem;
+    margin-bottom: 12px;
+    margin-top: 0 !important;
+  }
+
+  .footer-col ul li {
+    margin-bottom: 6px;
+  }
+
+  .footer-col ul li a {
+    font-size: 0.85rem;
+  }
+
+  .footer-explore {
+    margin-bottom: 20px;
+  }
+
+  .footer-col-btn {
+    display: inline-block;
+    padding: 8px 18px;
+    font-size: 0.82rem;
+    margin-bottom: 8px;
+    border-radius: 20px;
+  }
+
+  .footer-ctas h4.mt-3 {
+    margin-top: 14px !important;
+  }
+
+  .footer-bottom {
+    margin-top: 24px;
+    padding-top: 16px;
+    flex-direction: column;
+    gap: 4px;
+    text-align: center;
+    font-size: 0.8rem;
+  }
 }
 
 @media(max-width: 768px){
@@ -1495,10 +1574,6 @@ img {
   .contact-info-panel, .contact-form-panel { padding: 20px 15px; }
   .contact-item-new { gap: 14px; }
   .contact-item-icon { width: 42px; height: 42px; font-size: 1rem; }
-  .footer { padding: 50px 0 30px; }
-  .footer-heading { font-size: 1.5rem; }
-  .footer-col h4 { margin-top: 10px; }
-  .footer-bottom { flex-direction: column; gap: 8px; text-align: center; }
   .about-stats { flex-wrap: wrap; gap: 16px; }
   .stat-card { min-width: 120px; flex: 1; }
   .skills-container { grid-template-columns: repeat(2, 1fr); }
@@ -1506,6 +1581,17 @@ img {
   .experience-timeline::before { left: 20px; }
   .timeline-item { padding-left: 50px; }
   .timeline-dot { left: 12px; }
+
+  /* Tighten footer further */
+  .footer { padding: 32px 0 20px; }
+  .footer-grid { gap: 16px 20px !important; }
+  .footer-heading { font-size: 1.15rem; margin-bottom: 10px; }
+  .footer-desc { font-size: 0.78rem; margin-bottom: 16px; }
+  .footer-col h4 { font-size: 0.85rem; margin-bottom: 10px; }
+  .footer-col ul li { margin-bottom: 5px; }
+  .footer-col ul li a { font-size: 0.8rem; }
+  .footer-col-btn { padding: 7px 14px; font-size: 0.78rem; }
+  .footer-bottom { margin-top: 20px; padding-top: 12px; font-size: 0.75rem; }
 }
 
 @media(max-width: 480px){
@@ -1523,10 +1609,20 @@ img {
   .skill-card { padding: 16px 12px; }
   .nav-brand { font-size: 1.4rem; }
   .navbar-custom .container { padding: 0 16px; }
-  .footer-heading { font-size: 1.3rem; }
   .modal-content-wrapper { width: 98%; border-radius: 16px; }
   .modal-title { font-size: 1.3rem; }
   .modal-image-col { padding: 12px; }
   .modal-text-col { padding: 16px; }
   .about-text { font-size: 0.95rem; }
+
+  /* Keep 2-col footer but even tighter */
+  .footer { padding: 28px 0 16px; }
+  .footer-grid { gap: 14px 16px !important; }
+  .footer-heading { font-size: 1.05rem; }
+  .footer-desc { font-size: 0.72rem; margin-bottom: 12px; }
+  .footer-col h4 { font-size: 0.8rem; margin-bottom: 8px; }
+  .footer-col ul li a { font-size: 0.75rem; }
+  .footer-col-btn { padding: 6px 12px; font-size: 0.72rem; }
+  .footer-explore { margin-bottom: 14px; }
+  .footer-bottom { margin-top: 16px; font-size: 0.7rem; }
 }
