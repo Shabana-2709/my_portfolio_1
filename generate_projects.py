@@ -6,17 +6,39 @@ projects = []
 
 # Posters
 if os.path.exists('Posters'):
-    for f in os.listdir('Posters'):
-        if f.lower().endswith(('.jpg', '.jpeg', '.png', '.webp')):
+    poster_files = [f for f in os.listdir('Posters') if f.lower().endswith(('.jpg', '.jpeg', '.png', '.webp'))]
+    priority_files = [
+        'HireGlint_Framework_Test.png',
+        'HireGlint_AI_Resume_Screening.jpg',
+        'HireGlint_Flutter_Interviews.png',
+        'HireGlint_AI_NEXA_Interviewer.png'
+    ]
+    
+    # Add priority files first
+    for f in priority_files:
+        if f in poster_files:
             projects.append({
-                'title': os.path.splitext(f)[0].replace('-', ' ').title(),
+                'title': os.path.splitext(f)[0].replace('_', ' ').replace('-', ' ').title(),
                 'category': 'posters',
                 'catLabel': 'Posters & Icons',
                 'tags': ['Graphic Design', 'Poster'],
-                'desc': f'Graphic design artwork: {f}',
+                'desc': f'Creative Marketing Poster for HireGlint',
                 'caseStudy': f'<strong>Overview:</strong><br>A creative poster/icon design tailored for visual impact and brand messaging.<br><br><strong>Design Approach:</strong><br>Focused on maintaining aesthetic balance, strong typography, and color harmony to stand out in digital feeds.',
                 'img': f'Posters/{f}'
             })
+            poster_files.remove(f)
+            
+    # Add the rest
+    for f in poster_files:
+        projects.append({
+            'title': os.path.splitext(f)[0].replace('-', ' ').title(),
+            'category': 'posters',
+            'catLabel': 'Posters & Icons',
+            'tags': ['Graphic Design', 'Poster'],
+            'desc': f'Graphic design artwork: {f}',
+            'caseStudy': f'<strong>Overview:</strong><br>A creative poster/icon design tailored for visual impact and brand messaging.<br><br><strong>Design Approach:</strong><br>Focused on maintaining aesthetic balance, strong typography, and color harmony to stand out in digital feeds.',
+            'img': f'Posters/{f}'
+        })
 
 # Banners
 if os.path.exists('banners'):

@@ -989,18 +989,20 @@ img {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  font-size: 25vw;
+  font-size: 13vw; /* Adjusted to fit exactly in frame */
   font-family: var(--font-heading);
   font-weight: 800;
-  color: rgba(255, 255, 255, 0.02);
+  color: rgba(255, 255, 255, 0.15); /* Significantly increased visibility */
   white-space: nowrap;
   z-index: 0;
   pointer-events: none;
   user-select: none;
+  width: 100%;
+  text-align: center;
 }
 
 [data-theme="light"] .footer-bg-text {
-  color: rgba(0, 0, 0, 0.03);
+  color: rgba(0, 0, 0, 0.2); /* Significantly increased visibility */
 }
 
 .footer .container {

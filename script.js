@@ -31,17 +31,67 @@
   const skills = [
     { name: 'UI/UX Design', category: 'Design', icon: 'fas fa-object-group' },
     { name: 'Graphic Design', category: 'Design', icon: 'fas fa-palette' },
-    { name: 'Content Marketing', category: 'Marketing', icon: 'fas fa-bullhorn' },
-    { name: 'Social Media Management', category: 'Marketing', icon: 'fas fa-share-alt' },
+    { name: 'Digital Marketing', category: 'Marketing', icon: 'fas fa-bullhorn' },
+    { name: 'Market Research', category: 'Research', icon: 'fas fa-search' },
     { name: 'Lead Generation', category: 'Marketing', icon: 'fas fa-magnet' },
-    { name: 'SEO Optimization', category: 'Marketing', icon: 'fas fa-search' },
+    { name: 'Email Marketing', category: 'Marketing', icon: 'fas fa-envelope-open-text' },
+    { name: 'Google Ads & Analytics', category: 'Tools', icon: 'fas fa-chart-line' },
+    { name: 'Figma', category: 'Tools', icon: 'fab fa-figma' },
     { name: 'Adobe Photoshop', category: 'Tools', icon: 'fas fa-image' },
     { name: 'Adobe Illustrator', category: 'Tools', icon: 'fas fa-pen-nib' },
-    { name: 'Figma', category: 'Tools', icon: 'fab fa-figma' },
-    { name: 'Premiere Pro', category: 'Tools', icon: 'fas fa-video' }
+    { name: 'Premiere Pro', category: 'Tools', icon: 'fas fa-video' },
+    { name: 'WordPress', category: 'Tools', icon: 'fab fa-wordpress' }
   ];
 
   const projects = [
+  {
+    "title": "Hireglint Framework Test",
+    "category": "posters",
+    "catLabel": "Posters & Icons",
+    "tags": [
+      "Graphic Design",
+      "Poster"
+    ],
+    "desc": "Creative Marketing Poster for HireGlint",
+    "caseStudy": "<strong>Overview:</strong><br>A creative poster/icon design tailored for visual impact and brand messaging.<br><br><strong>Design Approach:</strong><br>Focused on maintaining aesthetic balance, strong typography, and color harmony to stand out in digital feeds.",
+    "img": "Posters/HireGlint_Framework_Test.png"
+  },
+  {
+    "title": "Hireglint Ai Resume Screening",
+    "category": "posters",
+    "catLabel": "Posters & Icons",
+    "tags": [
+      "Graphic Design",
+      "Poster"
+    ],
+    "desc": "Creative Marketing Poster for HireGlint",
+    "caseStudy": "<strong>Overview:</strong><br>A creative poster/icon design tailored for visual impact and brand messaging.<br><br><strong>Design Approach:</strong><br>Focused on maintaining aesthetic balance, strong typography, and color harmony to stand out in digital feeds.",
+    "img": "Posters/HireGlint_AI_Resume_Screening.jpg"
+  },
+  {
+    "title": "Hireglint Flutter Interviews",
+    "category": "posters",
+    "catLabel": "Posters & Icons",
+    "tags": [
+      "Graphic Design",
+      "Poster"
+    ],
+    "desc": "Creative Marketing Poster for HireGlint",
+    "caseStudy": "<strong>Overview:</strong><br>A creative poster/icon design tailored for visual impact and brand messaging.<br><br><strong>Design Approach:</strong><br>Focused on maintaining aesthetic balance, strong typography, and color harmony to stand out in digital feeds.",
+    "img": "Posters/HireGlint_Flutter_Interviews.png"
+  },
+  {
+    "title": "Hireglint Ai Nexa Interviewer",
+    "category": "posters",
+    "catLabel": "Posters & Icons",
+    "tags": [
+      "Graphic Design",
+      "Poster"
+    ],
+    "desc": "Creative Marketing Poster for HireGlint",
+    "caseStudy": "<strong>Overview:</strong><br>A creative poster/icon design tailored for visual impact and brand messaging.<br><br><strong>Design Approach:</strong><br>Focused on maintaining aesthetic balance, strong typography, and color harmony to stand out in digital feeds.",
+    "img": "Posters/HireGlint_AI_NEXA_Interviewer.png"
+  },
   {
     "title": "11",
     "category": "posters",
@@ -1023,7 +1073,7 @@
   /* ============================================
      TYPEWRITER
      ============================================ */
-  const titles = ['UI/UX Design', 'Graphic Design', 'Digital Marketing', 'Video Editing'];
+  const titles = ['Digital Marketer', 'Graphic Designer', 'Marketing Research Analyst', 'UI/UX Designer'];
   let titleIdx = 0;
   let charIdx = 0;
   let isDeleting = false;
