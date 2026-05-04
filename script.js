@@ -21,9 +21,9 @@
     }
   }
   
-  window.addEventListener('load', () => setTimeout(hidePreloader, 500));
+  window.addEventListener('load', () => setTimeout(hidePreloader, 2200));
   // Fallback to ensure it never blocks indefinitely
-  setTimeout(hidePreloader, 1500);
+  setTimeout(hidePreloader, 2800);
 
   /* ============================================
      DATA
