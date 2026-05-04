@@ -1423,6 +1423,10 @@ img {
   font-size: 1.15rem;
 }
 
+.hero-canvas-wrapper {
+  min-height: 500px;
+}
+
 @media(max-width: 991px){
   .hero-content { text-align: center; }
   .hero-buttons, .hero-socials { justify-content: center; }
