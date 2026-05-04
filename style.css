@@ -1428,6 +1428,7 @@ img {
   .hero-buttons, .hero-socials { justify-content: center; }
   .float-card-1 { top: 5%; left: 0%; }
   .float-card-2 { bottom: 5%; right: 0%; }
+  .hero-canvas-wrapper { min-height: 400px; }
   .navbar-collapse {
     background: var(--bg-secondary);
     padding: 20px;
@@ -1438,8 +1439,7 @@ img {
   .contact-card { padding: 40px 30px; }
   .contact-form-panel { padding: 30px; }
   .contact-info-panel { padding: 20px 30px; }
-  .footer .row { gap: 0; }
-  .footer-bg-text { font-size: 30vw; }
+  .footer .row { gap: 30px !important; }
   .modal-content-wrapper { width: 95%; }
   .modal-body .row { flex-direction: column; }
   .modal-image-col { padding: 20px; }
@@ -1452,6 +1452,7 @@ img {
   .hero-title { font-size: 2.5rem; }
   .hero-desc { font-size: 0.95rem; }
   .hero-image-wrapper { max-width: 350px; }
+  .hero-canvas-wrapper { min-height: 350px; }
   .section-title { font-size: 2rem; }
   .contact-card { padding: 30px 20px; border-radius: 18px; }
   .contact-info-panel, .contact-form-panel { padding: 20px 15px; }
@@ -1477,6 +1478,7 @@ img {
   .hero-buttons { flex-direction: column; gap: 12px; }
   .hero-buttons .btn-primary, .hero-buttons .btn-outline { width: 100%; text-align: center; }
   .hero-socials { gap: 12px; }
+  .hero-canvas-wrapper { min-height: 280px; }
   .section-title { font-size: 1.6rem; }
   .contact-card { padding: 24px 16px; border-radius: 14px; }
   .contact-card .section-title { font-size: 1.5rem !important; }
@@ -1484,7 +1486,6 @@ img {
   .skill-card { padding: 16px 12px; }
   .nav-brand { font-size: 1.4rem; }
   .navbar-custom .container { padding: 0 16px; }
-  .footer-bg-text { font-size: 40vw; }
   .footer-heading { font-size: 1.3rem; }
   .modal-content-wrapper { width: 98%; border-radius: 16px; }
   .modal-title { font-size: 1.3rem; }
