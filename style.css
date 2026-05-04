@@ -415,21 +415,54 @@ img {
   transition: color 0.3s ease;
 }
 
+/* Active underline indicator (exclude the CTA button) */
+.navbar-nav .nav-link:not(.nav-cta-btn)::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%) scaleX(0);
+  width: 60%;
+  height: 2px;
+  background: var(--accent);
+  border-radius: 2px;
+  transition: transform 0.3s ease;
+}
+
+.navbar-nav .nav-link:not(.nav-cta-btn):hover::after,
+.navbar-nav .nav-link:not(.nav-cta-btn).active::after {
+  transform: translateX(-50%) scaleX(1);
+}
+
 .navbar-nav .nav-link:hover,
 .navbar-nav .nav-link.active {
   color: var(--text-primary) !important;
 }
 
+/* "Let's Talk" CTA — always accent gradient, glow on hover */
 .nav-cta-btn {
-  background: var(--bg-tertiary);
+  background: var(--gradient-text) !important;
   border-radius: 20px;
-  border: 1px solid var(--border-color);
+  border: none !important;
   padding: 8px 20px !important;
+  color: #fff !important;
+  font-weight: 600;
+  box-shadow: 0 4px 15px rgba(217, 70, 239, 0.3);
+  transition: box-shadow 0.3s ease, transform 0.3s ease, color 0.3s ease;
 }
 
 .nav-cta-btn:hover {
-  background: var(--text-primary);
-  color: var(--bg-primary) !important;
+  box-shadow: 0 0 20px rgba(217, 70, 239, 0.6), 0 0 40px rgba(67, 56, 202, 0.35);
+  transform: translateY(-2px);
+  color: #fff !important;
+}
+
+[data-theme="light"] .nav-cta-btn {
+  box-shadow: 0 4px 15px rgba(192, 38, 211, 0.25);
+}
+
+[data-theme="light"] .nav-cta-btn:hover {
+  box-shadow: 0 0 20px rgba(192, 38, 211, 0.5), 0 0 40px rgba(55, 48, 163, 0.3);
 }
 
 /* ============================================
